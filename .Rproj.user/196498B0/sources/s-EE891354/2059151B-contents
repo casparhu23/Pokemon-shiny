@@ -1,20 +1,20 @@
 # Load all necessary packages
-library(shiny)
-library(ggplot2)
-library(data.table)
-library(ggridges)
-library(dplyr)
-library(plotly)
-library(htmlwidgets)
-library(tidyr)
-library(hrbrthemes)
-library(scales)
+library(shiny) # shiny app package
+library(ggplot2) # ggplot graph package
+library(data.table) # data table package
+library(ggridges) # density ridges plot
+library(dplyr) # dplyr package
+library(plotly) # interactive plot
+library(htmlwidgets) # HTML widget 
+library(tidyr) # data cleaning tool
+library(hrbrthemes) # ipsum package
+library(scales) # scale continuous variables
 library(fmsb) # make radar chart
-library(RColorBrewer)
-library(summarytools)
-library(rvest)
-library(magrittr)
-library(stringr)
+library(RColorBrewer) # get more colors
+library(summarytools) # summarize data quickly
+library(rvest) # work with web scraping
+library(magrittr) # structure code 
+library(stringr) # string cleaning
 
 
 pokemon_list <- read.csv("pokemon_list.csv") # read file
