@@ -1,3 +1,4 @@
+# Load all necessary packages
 library(shiny)
 library(ggplot2)
 library(data.table)
@@ -10,7 +11,6 @@ library(hrbrthemes)
 library(scales)
 library(fmsb) # make radar chart
 library(RColorBrewer)
-library(scales)
 library(summarytools)
 library(rvest)
 library(magrittr)
@@ -19,28 +19,31 @@ library(stringr)
 
 pokemon_list <- read.csv("pokemon_list.csv") # read file
 
-link_image <- "https://www.serebii.net/swordshield/galarpokedex.shtml"
+link_image <- "https://www.serebii.net/swordshield/galarpokedex.shtml" # pokemon main page
 
-image <- read_html(link_image)%>%
-    html_nodes("a[href*='pokedex'] img.stdsprite") %>%
+image <- read_html(link_image)%>% #scrape pokemon page
+    html_nodes("a[href*='pokedex'] img.stdsprite") %>% # use css selectors
     html_attr("src")
 
-
+# get the logical operator
 imageFinder <- lapply(image, function(x){
-    tf <- grepl("pokemon", x)  # names refer to the names of the table
+    tf <- grepl("pokemon", x)  
 })
 
+# get the half link using logical operator
 image_list_half <- image[unlist(imageFinder)]
 
-#swordshield/pokemon/small/810.png
-
+# get the full link
 image_list<- paste("https://www.serebii.net",
                    image_list_half, sep="")
 
+# get rid of the duplicate pokemons
 pokemon_with_picture <- pokemon_list[(pokemon_list$X!=183) & (pokemon_list$X!=329),]
 
+# put link into dataframe
 pokemon_with_picture$image <- image_list
 
+# sort dataframe with alphabetical order
 pokemon_with_picture <- pokemon_with_picture[order(pokemon_with_picture$pokemon_name),]
 
 
