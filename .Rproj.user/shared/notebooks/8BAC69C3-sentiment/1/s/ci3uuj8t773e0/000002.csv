@@ -1,0 +1,7 @@
+"0","replacedText <- textclean::replace_contraction(cleanLyrics)"
+"0",""
+"0","tm::removeWords(replacedText, words = stopwords(""en""))"
+"1","[1]"
+"1"," ""She loved  like   The last man  Earth Gave  everything  ever    break  spirit  Then come loving    Give  little,  take  back She  tell    dreams   just shoot 'em  Lord  loved  make  cry \""  crazy  believing   ever leave  ground\"" He said, \""Only angels know   fly\"" And   broken wing She still sings She keeps  eye   sky With  broken wing She carries  dreams Man,    see  fly One Sunday morning She   go  church He wondered     leave He went    bedroom Found  note   window With  curtains blowin'   breeze And   broken wing She still sings She keeps  eye   sky With  broken wing She carries  dreams Man,    see  fly With  broken wing She carries  dreams Man,    see  Flyyyyyyyyyyyyy With  broken wing"""
+"1","
+"

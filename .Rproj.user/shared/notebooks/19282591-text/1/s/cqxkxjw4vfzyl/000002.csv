@@ -1,0 +1,5 @@
+"0","library(ggplot2)"
+"0",""
+"0","hflPOS <- t(data.frame(summary(as.factor(names(hflTags[[1]])))))"
+"2","Error in is.factor(x) : object 'hflTags' not found
+"

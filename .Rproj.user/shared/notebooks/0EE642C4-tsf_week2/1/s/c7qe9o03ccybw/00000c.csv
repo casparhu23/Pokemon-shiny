@@ -1,0 +1,2 @@
+"0","legend(""topleft"", lty=1, col=c(""green"",""red"",""blue"",""pink"",""black""),"
+"0","       legend=c(""Seasonal naive"",""Naive"",""Average"",""ETS"",""Actual""))"

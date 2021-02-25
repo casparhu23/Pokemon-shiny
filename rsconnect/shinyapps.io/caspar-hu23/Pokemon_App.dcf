@@ -1,0 +1,12 @@
+name: Pokemon_App
+title: Pokemon_App
+username:
+account: caspar-hu23
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3552936
+bundleId: 4269217
+url: https://caspar-hu23.shinyapps.io/Pokemon_App/
+when: 1614222154.19
+asMultiple: FALSE
+asStatic: FALSE

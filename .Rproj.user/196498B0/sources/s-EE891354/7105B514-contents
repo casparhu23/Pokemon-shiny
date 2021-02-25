@@ -1,0 +1,192 @@
+#Practice Problems
+
+library(fpp)
+
+#####Question 1:IBM STOCK PRICES######
+plot(ibmclose)
+head(ibmclose,10)
+#ibmclose
+
+
+ibm1 <- window(ibmclose, end=300)   # train data start from 1:300 samples
+ibm2 <- window(ibmclose, start=301) # test data start from 301:369 samples
+h <- length(ibm2) # length of test data set
+h
+
+f1 <- meanf(ibm1, h=h) #average of past values method # h=h we use test data length to forecast
+f2 <- rwf(ibm1, h=h) #naive method
+f3 <- rwf(ibm1, drift=TRUE, h=h) #drift method
+
+# if we just use f1 and test data set we will get results from training and test 
+accuracy(f1, # model
+         ibm2) # test data 
+accuracy(f2,ibm2)
+accuracy(f3,ibm2)
+
+# for convenience, we can use f1$mean to get test set stats for RMSE, MAPE and MAE find the lowest
+accuracy(f1$mean, # model
+         ibm2) # test data 
+accuracy(f2$mean,ibm2)
+accuracy(f3$mean,ibm2)
+
+accuracy(f1$fitted,ibm1)
+
+# f3 (Drift) does best due to lowest RMSE, MAE, MAPE
+
+plot(f1)   # average past value
+plot(f2)   # naive - the last point 
+plot(f3)   # drift method
+lines(ibm2)
+
+###??? 
+f3$residuals
+length(f3$residuals)   # this is 300
+f3$fitted
+f3$mean
+
+res <- residuals(f3) # get residulas from f3
+length(res) 
+head(res)
+sum(is.na(res))  #check to see if there is any other NAs
+which(is.na(res))  #location of NAs
+res = res[-1] #remove NA
+plot(res)
+Acf(res)  # we still see some of data are not in the range that'why it is not a white noise.
+# Ideally, we need a white noise
+hist(res, breaks="FD")
+
+
+jarque.bera.test(res) #p-value is small -> not normal
+
+# Residuals look relatively uncorrelated, but the distribution is not normal (tails too long)
+
+
+# MORE EXPLORATION
+#help()
+res1 <- residuals(f1)
+res2 <- residuals(f2)
+head(res1)
+head(res2)
+res2= res2[-1]
+Acf(res1)
+Acf(res2)
+jarque.bera.test(res1)
+jarque.bera.test(res2)
+
+##### Question 2 #####
+library(fpp)
+
+plot(visitors)
+tail(visitors)
+visitors_training=window(visitors, end=c(2003,4))
+visitors_test=window(visitors,start=c(2003,5)) 
+
+
+fc1 <- hw(visitors_training,seasonal="mult")
+plot(fc1)
+# Multiplicative seasonality because of the increasing size of the fluctuations
+# and increasing variation with the trend.
+# Seasonality looks like it behaves proportionally, therefore multiplicatively.
+
+fc2 <- hw(visitors_training,seasonal="mult",damped=TRUE)
+fc3 <- hw(visitors_training,seasonal="additive")
+fc4 <- hw(visitors_training,seasonal="additive",damped=TRUE)
+
+plot(fc1)
+lines(fc2$mean,col=2)
+lines(fc3$mean,col=3)
+lines(fc4$mean,col=4)
+lines(visitors_test,col='black')
+
+accuracy(fc1$mean,visitors_test)
+accuracy(fc2$mean,visitors_test)
+accuracy(fc3$mean,visitors_test)
+accuracy(fc4$mean,visitors_test)
+
+# Additive seasonality (fc3) does best among these models.
+
+
+res3 <- residuals(fc3)
+Acf(res3)
+Box.test(res3, lag=24, fitdf=length(fc3$model$par))
+# Some problems, but not too bad.
+jarque.bera.test(res3)
+
+#Explore others
+#for fc1
+res1 <- residuals(fc1)
+Acf(res1)
+Box.test(res1, lag=24, fitdf=length(fc1$model$par))
+# Some problems, but not too bad.
+jarque.bera.test(res1)
+
+#for fc2
+res2 <- residuals(fc2)
+Acf(res2)
+Box.test(res2, lag=24, fitdf=length(fc2$model$par))
+# Some problems, but not too bad.
+jarque.bera.test(res2)
+
+#for fc4
+res4 <- residuals(fc4)
+Acf(res4)
+Box.test(res4, lag=24, fitdf=length(fc4$model$par))
+# Some problems, but not too bad.
+jarque.bera.test(res4)
+
+
+fit <- ets(visitors_training)
+fit
+# ETS(M,Ad,M) model
+# That is equivalent to the second one -- multiplicative seasonality, damped trend.
+plot(forecast(fit))
+accuracy(forecast(fit),visitors)
+#forecast(fit)
+###########################
+
+
+require(fpp)
+plot(ibmclose)
+ibm1 <- window(ibmclose, end=300)
+ibm2 <- window(ibmclose, start=301)
+h <- length(ibm2)
+f1 <- meanf(ibm1, h=h) #average of past values method
+f2 <- rwf(ibm1, h=h) # naive method
+f3 <- rwf(ibm1, drift=TRUE, h=h) #drift method
+accuracy(f1,ibm2)
+accuracy(f2,ibm2)
+accuracy(f3,ibm2)
+
+#################
+
+plot(f3)  #where f is either f1, f2, or f3 
+lines(ibm2)
+###################
+library(fpp)
+plot(ausbeer) 
+
+beer_training = window(ausbeer,start=1980, end=1999.99) #Training data
+beer_test = window(ausbeer,start=2000) #Test data
+fit_snaive = snaive(beer_training, h=35) #naive seasonal
+fit_ets = ets(beer_training) # ets model
+f1=forecast(fit_snaive,h=35) #forecasts of naive seasonal
+f2=forecast(fit_ets,h=35) #forecasts of ets model
+plot(f2$mean,col='blue') #plot est forecasts
+lines(f1$mean,col='red') #plot naive seasonal forecasts
+lines(beer_test, col= 'black') #plot test (actual) data
+accuracy(f1,beer_test) #forecast accuracy of seasonal naive based on test data
+accuracy(f2,beer_test)#forecast accuracy of ets model based on test data 
+
+##############
+window(ausbeer, start=1995)
+subset(ausbeer, start=length(ausbeer)-4*5) # extracts last 5 years of observations one year 4 quarters 
+
+##############
+require(fpp)
+plot(usnetelec)
+usele_training <- window(usnetelec, start=1949,end=1993)
+usele_test <- window(usnetelec, start=1994)
+fcast = ets(usele_training)
+plot(forecast(fcast))
+lines(usele_test)
+accuracy(forecast(fcast),usnetelec)

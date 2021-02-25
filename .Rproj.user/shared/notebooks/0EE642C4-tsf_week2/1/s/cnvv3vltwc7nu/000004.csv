@@ -1,0 +1,2 @@
+"0","fit <- ses(oil,  h=5)"
+"0","plot(fit)"

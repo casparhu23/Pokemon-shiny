@@ -1,0 +1,7 @@
+"0","# Multiplicative seasonality because of the increasing size of the fluctuations"
+"0","# and increasing variation with the trend."
+"0","# Seasonality looks like it behaves proportionally, therefore multiplicatively."
+"0",""
+"0","fc2 <- hw(visitors_training,seasonal=""mult"",damped=TRUE)"
+"0","fc3 <- hw(visitors_training,seasonal=""additive"")"
+"0","fc4 <- hw(visitors_training,seasonal=""additive"",damped=TRUE)"

@@ -1,0 +1,69 @@
+---
+title: "bitcoin"
+author: "Caspar Hu"
+date: "2/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(rvest)
+library(magrittr)
+```
+
+```{r}
+bit_link <- "https://finance.yahoo.com/quote/BTC-USD/history/"
+
+bitLink <- "https://coinmarketcap.com/currencies/bitcoin/historical-data/"
+
+bitLink2 <- "https://www.investing.com/crypto/bitcoin/historical-data"
+
+bitcoin  <- read_html(bitLink2) %>% 
+  html_nodes("table#curr_table.genTbl.closedTbl.historicalTbl")%>%
+  html_table()%>%
+  magrittr::extract2(1)
+```
+
+```{r}
+library(dplyr)
+dim(bitcoin)
+summary(bitcoin)
+
+bitcoin <- bitcoin%>%
+  mutate(Price = as.numeric(gsub(",", "", Price)))
+
+require(devtools)
+install_github("Displayr/flipTime")  
+library(flipTime)
+AsDate("Jan. 10, 2016")
+
+
+bitcoin$Date <- AsDate(bitcoin$Date)
+
+rownames(bitcoin) <- bitcoin$Date
+
+mean(bitcoin$Price)  # on average 41192.37 
+sd(bitcoin$Price)   #  std 8562.904
+
+```
+
+```{r}
+log_return = diff(log(bitcoin$Price))
+head(log_return)
+#log_return=log_return[-1]
+mean(log_return)*100 # as percentage
+sd(log_return)*100
+```
+
+```{r}
+log_return = log_return*100
+
+t.test(log_return)   # low p value < 0.05 mean of the log returns of CAT is not zero. less than zero
+```
+```{r}
+normalTest(log_return, method= 'jb') # low p value not normal
+```
+

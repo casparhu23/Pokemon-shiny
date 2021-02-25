@@ -1,0 +1,4 @@
+"0",""
+"0","fc1 <- meanf(beer3, h=12) #average of past values"
+"0","fc2 <- naive(beer3, h=12) #naive method"
+"0","fc3 <- snaive(beer3, h=12)#seasonal naive method"

@@ -1,0 +1,64 @@
+"0","summary(fit)"
+"1","
+Forecast method: Simple exponential smoothing"
+"1","
+
+Model Information:
+"
+"1","Simple exponential smoothing 
+
+"
+"1","Call:
+ ses(y = oil, h = 5) 
+
+"
+"1","  Smoothing parameters:
+"
+"1","    alpha = 0.9999 
+"
+"1","
+  Initial states:
+"
+"1","    l = 110.8832 
+"
+"1","
+  sigma:  "
+"1","49.8224"
+"1","
+
+"
+"1","     AIC "
+"1","    AICc "
+"1","     BIC "
+"1","
+"
+"1","539.6515 "
+"1","540.2230 "
+"1","545.1375 "
+"1","
+"
+"1","
+Error measures:
+"
+"1","            "
+"1","      ME"
+"1","    RMSE"
+"1","     MAE"
+"1","      MPE"
+"1","     MAPE"
+"1","      MASE"
+"1","      ACF1"
+"1","
+Training set"
+"1"," 7.75923"
+"1"," 48.7273"
+"1"," 35.7896"
+"1"," 1.970355"
+"1"," 11.03937"
+"1"," 0.9783561"
+"1"," 0.1744468"
+"1","
+"
+"1","
+Forecasts:
+"

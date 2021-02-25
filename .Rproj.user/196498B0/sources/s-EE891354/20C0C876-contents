@@ -1,0 +1,288 @@
+---
+title: "tsf_week1"
+author: "Caspar Hu"
+date: "2/8/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Anything that is observed sequentially over time is a time series.
+
+A forecaster might select a time series model rather than an explanatory model.
+• Simpler
+• Might be more accurate
+
+A “lag” is a fixed amount of passing time; One set of observations in a time series is plotted (lagged) against a second, later set of data. The kth lag is the time period that happened “k” time points before time i. ex: Lag1(Y2) = Y1 and Lag4(Y9) = Y5.
+
+We measure the relationship between:
+– yt and yt−1 : lag 1 autocorrelation   # 1 can be 1 week or 1 day ...
+– yt and yt−2 : lag 2 autocorrelation   # 2 can be 2 weeks or 2 days
+
+Trend :the autocorrelations for small lags tend to be large and positive.
+![](/Users/Caspar/Documents/Times Series Forecasting/image/rev_01.png)
+
+Seasonality: the autocorrelations will be larger at the seasonal lags
+![](/Users/Caspar/Documents/Times Series Forecasting/image/rev_02.png)
+Time series that show no autocorrelation are called white noise.
+For white noise series, we expect each autocorrelation to be close to zero.
+![](/Users/Caspar/Documents/Times Series Forecasting/image/rev_03.png)
+Residual Assumptions
+– uncorrelated
+– have mean zero
+
+Residual properties (for prediction intervals)
+– have constant variance
+– are normally distributed
+
+Actual * a + forecast * (1-a)
+
+```{r}
+library(quantmod)
+getSymbols("WBA",from="2018-01-01", to="2021-02-01")
+mean(WBA$WBA.Open)
+```
+
+```{r}
+getSymbols("NFLX",from="2015-01-01", to="2020-12-31")
+sd(NFLX$NFLX.High)
+```
+```{r}
+getSymbols("MSFT",from="2015-01-01", to="2020-12-31")
+log_return = diff(log(MSFT$MSFT.Adjusted))
+head(log_return)
+log_return=log_return[-1]
+mean(log_return) # as percentage
+sd(log_return)*100 # as percentage
+```
+
+```{r}
+getSymbols("AMZN",from="2016-01-01", to="2020-12-31")
+log_return = diff(log(AMZN$AMZN.Adjusted))
+head(log_return)
+log_return=log_return[-1]
+sd(log_return)
+```
+
+
+
+## GET CVS stock price 
+```{r}
+#install.packages("quantmod") #install package 'quantmod'
+library(quantmod) #load the package
+options(scipen = 999) # transform scientific numbers to decimals
+getSymbols("CVS",from="2014-01-01", to="2015-12-31")#Data scaping: Download daily prices of CVS, an index that tracks the S&P 500, from Yahoo finance from 01/01/2014 to 12/31/2015
+dim(CVS) #dimension: see the size of the downloaded data # 503 rows and 6 cols
+head(CVS)#see the first 6 rows of the data
+head(CVS,10) # see the first ten rows of the data
+head(CVS$CVS.Open)
+tail(CVS)#See the last 6 rows of the  data
+mean(CVS$CVS.Adjusted) 
+sd(CVS$CVS.Adjusted)
+```
+
+## plot time series SPY
+```{r}
+chartSeries(CVS,theme="white")#Plot the daily close price and volume with 6 attributes
+chartSeries(CVS$CVS.Adjusted,theme="white") #Plot the daily adjusted price and volume
+#the subcommand theme is used to obtain white background of the plot
+chartSeries(CVS) #same plot with black background
+chartSeries(CVS$CVS.Adjusted) # same adjusted price plot with black background
+```
+## Log return diff(log(CVS$CVS.Adjusted))
+```{r}
+# log return of log cvs adjusted
+log_return = diff(log(CVS$CVS.Adjusted))
+head(log_return)
+log_return=log_return[-1]
+mean(log_return)*100 # as percentage
+sd(log_return)*100 # as percentage
+```
+
+## some time series example
+```{r}
+library(fpp)
+help("austourists")  # run and see Quarterly visitor nights spent by international tourists to Australia. 1999-2010.
+plot(austourists)
+plot(housing)
+plot(housing)
+housing <- as.data.frame.table(housing)
+``` 
+
+## Baby Female weight
+```{r}
+library(ggplot2)
+library(forecast)
+library(tseries)
+da <- read.table("/Users/Caspar/Documents/Times Series Forecasting/Weight_female.txt",header=T) #Load data
+head(da)
+
+# da <- read.csv("/Users/Caspar/Documents/Times Series Forecasting/data/WEIGHT_FEMALEINFANT.csv")
+# colnames(da) <- c("Age","X3rdPercentile","X5thPercentile","X10thPercentile",
+# "X25thPercentile","X50thPercentile","X75thPercentile",
+# "X90thPercentile","X95thPercentile","X97thPercentile")
+
+x_var = da$Age
+y1_var=da$X3rdPercentile*2.205 #convert from kilogram to pound
+y2_var=da$X5thPercentile*2.205
+y3_var=da$X10thPercentile*2.205
+y4_var=da$X25thPercentile*2.205
+y5_var=da$X50thPercentile*2.205
+y6_var=da$X75thPercentile*2.205
+y7_var=da$X90thPercentile*2.205
+y8_var=da$X95thPercentile*2.205
+y9_var=da$X97thPercentile*2.205
+df <- data.frame(x=x_var, y=y1_var, type='03rdPercentile') 
+df <- rbind(df, data.frame(x=x_var, y=y2_var, type='05thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y3_var, type='10thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y4_var, type='25thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y5_var, type='50thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y6_var, type='75thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y7_var, type='90thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y8_var, type='95thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y9_var, type='97thPercentile'))
+
+ggplot(df, aes(x,y, group=type, col=type))+ xlab("Months") +
+  ylab("Weight (lbs)") + ggtitle("Percentiles of Baby Weight from 0-36 months Female") + 
+  geom_line() + scale_x_continuous(breaks=c(6,12,18, 24,30,36)) +
+  geom_point(aes(x=3, y=10), colour="blue")+ 
+  geom_point(aes(x=6, y=15), colour="blue")+geom_point(aes(x=12, y=20), colour="blue")+geom_point(aes(x=24, y=22), colour="blue")+
+  geom_point(aes(x=36, y=30), colour="blue")
+
+# ages are in months, if we want to find 6 months, using 5.5, find 36 months, use 35.5
+
+head(da)
+```
+
+## Baby female Length
+```{r}
+library(ggplot2)
+library(forecast)
+library(tseries)
+da <- read.table("/Users/Caspar/Documents/Times Series Forecasting/data/Length_Female.txt",header=T) #Load data
+
+# data are in centimeters
+
+head(da)
+colnames(da) <- c("Age","X3rdPercentile","X5thPercentile","X10thPercentile",
+"X25thPercentile","X50thPercentile","X75thPercentile",
+"X90thPercentile","X95thPercentile","X97thPercentile")
+
+x_var = da$Age
+y1_var=da$X3rdPercentile 
+y2_var=da$X5thPercentile
+y3_var=da$X10thPercentile
+y4_var=da$X25thPercentile
+y5_var=da$X50thPercentile
+y6_var=da$X75thPercentile
+y7_var=da$X90thPercentile
+y8_var=da$X95thPercentile
+y9_var=da$X97thPercentile
+df <- data.frame(x=x_var, y=y1_var, type='03rdPercentile') 
+df <- rbind(df, data.frame(x=x_var, y=y2_var, type='05thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y3_var, type='10thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y4_var, type='25thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y5_var, type='50thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y6_var, type='75thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y7_var, type='90thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y8_var, type='95thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y9_var, type='97thPercentile'))
+
+ggplot(df, aes(x,y, group=type, col=type))+ xlab("Months") +
+  ylab("Length (cm)") + ggtitle("Percentiles of Baby Length from 0-36 months Female") + 
+  geom_line() + scale_x_continuous(breaks=c(6,12,18, 24,30,36))+geom_point(aes(x=3, y=55), colour="blue")+geom_point(aes(x=6, y=63), colour="blue")+geom_point(aes(x=12, y=70), colour="blue")+geom_point(aes(x=24, y=85), colour="blue")+
+  geom_point(aes(x=36, y=97), colour="blue")
+
+head(da)
+```
+## Baby female length (converted to inches) HW does not use this! 
+```{r}
+da <- read.table("/Users/Caspar/Documents/Times Series Forecasting/data/Length_Female.txt",header=T) #Load data
+
+head(da)
+colnames(da) <- c("Age","X3rdPercentile","X5thPercentile","X10thPercentile",
+"X25thPercentile","X50thPercentile","X75thPercentile",
+"X90thPercentile","X95thPercentile","X97thPercentile")
+
+x_var = da$Age
+y1_var=da$X3rdPercentile/2.54 #convert cm to inches
+y2_var=da$X5thPercentile/2.54
+y3_var=da$X10thPercentile/2.54
+y4_var=da$X25thPercentile/2.54
+y5_var=da$X50thPercentile/2.54
+y6_var=da$X75thPercentile/2.54
+y7_var=da$X90thPercentile/2.54
+y8_var=da$X95thPercentile/2.54
+y9_var=da$X97thPercentile/2.54
+df <- data.frame(x=x_var, y=y1_var, type='03rdPercentile') 
+df <- rbind(df, data.frame(x=x_var, y=y2_var, type='05thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y3_var, type='10thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y4_var, type='25thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y5_var, type='50thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y6_var, type='75thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y7_var, type='90thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y8_var, type='95thPercentile'))
+df <- rbind(df, data.frame(x=x_var, y=y9_var, type='97thPercentile'))
+
+ggplot(df, aes(x,y, group=type, col=type))+ xlab("Months") +
+  ylab("Length (inch)") + ggtitle("Percentiles of Baby Length from 0-36 months Female") + 
+  geom_line() + scale_x_continuous(breaks=c(6,12,18, 24,30,36))+geom_point(aes(x=3, y=55), colour="blue")+geom_point(aes(x=6, y=63), colour="blue")+geom_point(aes(x=12, y=70), colour="blue")+geom_point(aes(x=24, y=85), colour="blue")+
+  geom_point(aes(x=36, y=97), colour="blue")
+```
+
+## simple return and log return summary stats
+```{r}
+#Topic 4: R code on summary statistics for CAT
+library(data.table)
+library(fBasics)
+data <- fread("/Users/Caspar/Documents/Times Series Forecasting/data/d-3stocks9908.txt")
+
+basicStats(data$axp) # all the simple return data for axp stock
+# so all the value in basicStats should be times 100, except skewness and kurtosis.
+
+#Part a): Transform the simple returns of CAT to log returns 
+log_ret = log(1+data$axp)
+head(log_ret)
+#Express log returns in percentage
+log_ret = log_ret*100
+head(log_ret)
+
+#part b): Compute the sample mean, standard deviation, skewness, 
+#excess kurtosis, min and max of the percentage of log return
+library(fBasics)
+basicStats(log_ret) 
+
+# standard kurtosis is 3, now this kurtosis is already subtracted from 3, so we should compare this kurtosis to 0 same with excess kurtosis which means we also compare this kurtosis to 0
+
+```
+
+## Null hypothesis and JB test
+```{r}
+#part c) Test the null hypothesis that the mean of the log returns of CAT is zero.
+#Use 5% significance level to draw your conclusion
+t.test(log_ret)
+# we have 95% confidence to fail to reject the null, cuz large p value 
+
+# JB test
+normalTest(log_ret, method= 'jb')   # we reject null hypothesis, and log returns are not normally distributed.
+
+```
+*if log return follow normal distribution, we can say that prediction interval is the actual prediction interval, otherwise we can only say it is estimated*
+
+## Apple stock Exercises
+```{r}
+getSymbols("AAPL",from="2018-01-01", to="2020-12-31")
+head(AAPL)
+mean(AAPL$AAPL.Adjusted)
+sd(AAPL$AAPL.Adjusted)
+
+log_return =diff(log(AAPL$AAPL.Adjusted))
+log_return = log_return[-1]
+mean(log_return)
+sd(log_return)
+
+chartSeries(AAPL$AAPL.Adjusted,theme="white") #Plot the daily adjusted price and volume
+chartSeries(AAPL$AAPL.Close, theme="white")
+```

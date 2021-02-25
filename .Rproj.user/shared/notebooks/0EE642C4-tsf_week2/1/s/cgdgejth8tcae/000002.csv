@@ -1,0 +1,8 @@
+"0","ibm1 <- window(ibmclose, end=300)   # train data start from 1:300 samples"
+"0","ibm2 <- window(ibmclose, start=301) # test data start from 301:369 samples"
+"0","h <- length(ibm2) # length of test data set"
+"0","h"
+"1","[1]"
+"1"," 69"
+"1","
+"

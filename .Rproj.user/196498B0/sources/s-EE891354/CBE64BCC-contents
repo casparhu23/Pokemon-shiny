@@ -1,0 +1,673 @@
+---
+title: "Text Analysis"
+description: |
+  Introductory Concepts
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+
+
+# Text
+
+The ability to produce written word is one of the major separators between us and the other great apes. And with the ability to produce it, comes the benefit of interpreting it.
+
+
+# Initial Analyses
+
+Like every analysis you will ever do, it is easy to try jumping right into the most complex questions you can answer with text -- and it is never the right thing to do. Text gives us the ability to do a lot of exploratory data analysis, so let's start there.
+
+Let's start by finding a little bit of text. There is a lot out there, but let's grab some "interesting" song lyrics. 
+
+```{r}
+library(rvest)
+
+library(stringr)
+
+options(scipen = 999)
+
+hflLyrics <- read_html("https://genius.com/Luke-bryan-huntin-fishin-and-lovin-every-day-lyrics") %>% 
+  html_nodes(".lyrics") %>% 
+  html_text()
+
+hflLyrics
+```
+
+We can see that we have the data, but we are left with a complete mess.
+
+```{r}
+hflLyrics <- str_replace_all(hflLyrics, "\n", " ") %>% 
+  str_replace_all(., "\\[[A-Za-z]+\\s*[0-9]*]", "") %>%
+  str_squish(.) %>% 
+  gsub("([a-z])([A-Z])", "\\1 \\2", .)
+
+hflLyrics
+```
+
+And there you have a #1 Country Song from just a few years ago.
+
+For those that might like a little more grit to their Country, let's look at another song:
+
+```{r}
+copperheadLyrics <- read_html("https://genius.com/Steve-earle-copperhead-road-lyrics") %>% 
+  html_nodes(".lyrics") %>% 
+  html_text() %>% 
+  str_replace_all(., "\n", " ") %>% 
+  str_replace_all(., "\\[\\w+\\s*[0-9]*]", "") %>% 
+  str_squish(.) %>% 
+  gsub("([a-z])([A-Z])", "\\1 \\2", .)
+
+copperheadLyrics
+```
+
+And here is some more underground country:
+
+```{r}
+choctawBingoLyrics <- read_html("https://genius.com/James-mcmurtry-choctaw-bingo-lyrics") %>% 
+  html_nodes(".lyrics") %>% 
+  html_text() %>% 
+  str_replace_all(., "\n", " ") %>% 
+  str_replace_all(., "\\[\\w+\\s*\\w*\\]", "") %>% 
+  str_squish(.) %>% 
+  gsub("([a-z])([A-Z])", "\\1 \\2", .)
+
+choctawBingoLyrics
+```
+
+<aside>
+You will notice that we ran the same code three times -- probably time to create a function.
+</aside>
+
+We clearly have very different songs: one about living the outlaw life, one about living the "country-bro" life, and one about your typical American family reunion. From here on, it might be worth exploring more about these three types of songs.
+
+## Part of Speech
+
+Some very simple descriptives would relate to the parts of speech used within each song:
+
+```{r}
+dyn.load('/Library/Java/JavaVirtualMachines/openjdk-13.0.1.jdk/Contents/Home/lib/server/libjvm.dylib')
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load_gh(c(
+    "trinker/termco", 
+    "trinker/coreNLPsetup",        
+    "trinker/tagger"
+))
+
+library(tagger)
+
+tagger::penn_tags()
+
+copperTags <- tag_pos(copperheadLyrics)
+
+plot(copperTags)
+
+hflTags <- tag_pos(hflLyrics)
+
+plot(hflTags)
+
+bingoTags <- tag_pos(choctawBingoLyrics)
+
+plot(bingoTags)
+```
+
+Let's do just a little bit of digging into this stuff. We can see that most of them have a big chunk of common nouns (NN), with out more story-oriented songs having a significant chunk of singular proper nouns (NNP). The bro-country has a significant chunk of determiners (DT) -- determiners modify a noun (e.g., "a", "an", and "the" are determiners, as is the word "doctor's" in "doctor's office"). The *Choctaw Bingo* song has a ton of different parts of speech, which is not a surprise.
+
+Let's look at some very clunky code:
+
+```{r}
+library(ggplot2)
+
+hflPOS <- t(data.frame(summary(as.factor(names(hflTags[[1]])))))
+
+copperPOS <- t(data.frame(summary(as.factor(names(copperTags[[1]])))))
+
+bingoPOS <- t(data.frame(summary(as.factor(names(bingoTags[[1]])))))
+
+allPOS <- dplyr::bind_rows(as.data.frame(hflPOS), 
+          as.data.frame(copperPOS), 
+          as.data.frame(bingoPOS)) %>% 
+  tibble::as_tibble(lapply(., function(x) ifelse(is.na(x), 0, x))) %>% 
+  tibble::add_column(., song = c("hfl", "copper", "bingo"), .before = TRUE) %>% 
+  tidyr::pivot_longer(., cols = `.`:WDT)
+
+ggplot(allPOS, aes(name, value, color = song)) +
+  geom_point() + 
+  theme_minimal()
+```
+
+What is a problem with this visualization? If you guessed that it is not normalized, you would be correct.
+
+Part of speech tagging is great if you want to know how people are using the language, not necessarily what they are using or what they are saying.
+
+### On Tagger and Macs
+
+The tagger package (and many others) rely on `rJava`. On a Windows machine, it usually is not much of an issue -- Macs can be a different story. Assuming that you already have Java installed. You will need to launch your terminal and type `R CMD javareconf`. After that, you need to establish a link between your R and Java.
+
+Refer to the following pages to get it going:
+
+https://zhiyzuo.github.io/installation-rJava/
+
+```{python}
+from bs4 import BeautifulSoup
+import nltk
+import re
+import requests
+
+
+link = 'https://genius.com/James-mcmurtry-choctaw-bingo-lyrics'
+
+lyricsRead = requests.get(link)
+
+lyricsParsed = BeautifulSoup(lyricsRead.content, 'html.parser')
+
+lyricsOut = lyricsParsed.find('div', class_ = 'lyrics')
+
+lyricsText = lyricsOut.text
+
+lyricsText = re.sub('\n|\\[\\w+\\s*\\w*\\]', '', lyricsText)
+
+lyricsText = re.sub('([a-z])([A-Z])', '\\1 \\2', lyricsText)
+
+lyricToken = nltk.word_tokenize(lyricsText) # You will get a warning at first, so nltk.download('punkt')
+
+nltk.pos_tag(lyricToken) # nltk.download('averaged_perceptron_tagger')
+```
+
+
+## Term Frequency
+
+Just like any other data, text has some basic descriptives, with term frequency (tf -- $f_{t,d}$) being incredibly useful. When we are looking at term frequency, we are looking for a few different words: high and low frequency. If a word is high frequency (think: "the"), then it might not really be offering us much in the way of anything informative. Likewise, a word that only occurs once or twice might not be terribly important either. 
+
+We can calculate term frequency (adjusted for for document length) as the following:
+
+$$tf=\frac{N_{term}}{Total_{terms}}$$
+
+When looking at a corpus, it is important to adjust for the length of the text when calculating term frequency (naturally, longer texts will have words occuring more frequently). 
+
+There are a few other ways of calculating term frequency:
+
+A raw weight is depicted as $f_{t,d}$ -- the frequency with which *t* (the term) is found in *d* (the document)
+
+If you want to effectively normalize huge numbers and minimize the differences between huge numbers, $log(1+f_{t,d})$
+
+If you have huge differences in document length, you might use augmented term frequency: $k + (1-k)\frac{tf}{max(t,f)}$, where *k* helps to mitigate the effects of document length (it essentially removes the bias towards longer documents).
+
+This <a href="https://arxiv.org/ftp/arxiv/papers/1604/1604.04007.pdf">article</a> has a nice run down of more methods.
+
+Let's see what we have in the way of term frequency in our two songs:
+
+```{r}
+library(dplyr)
+
+library(tidytext)
+
+songData <- data.frame(song = c("hfl", "copperhead", "bingo"), 
+                      lyrics = c(tolower(hflLyrics), tolower(copperheadLyrics), 
+                                 tolower(choctawBingoLyrics)), 
+                      stringsAsFactors = FALSE)
+
+songTF <- songData %>% 
+  split(., .$song) %>%
+  lapply(., function(x) {
+    songTokens = tm::MC_tokenizer(x$lyrics)
+    tokenCount = as.data.frame(summary(as.factor(songTokens), maxsum = 1000))
+    total = length(songTokens)
+    tokenCount = data.frame(count = tokenCount[[1]], 
+                            word = row.names(tokenCount),
+                            total = total,
+                            song = x$song,
+                            row.names = NULL)
+    return(tokenCount)
+    }) 
+
+songTF <- do.call("rbind", songTF)  
+
+rmarkdown::paged_table(songTF)
+  
+```
+
+
+We can sort our raw frequencies in many different ways, but we see some very common words across our documents (the, i, a). Those likely are not important for our understanding of the lyrics (maybe "I", but we can get into the story-telling in a bit).
+
+Let's now take our frequencies and divide by the number of terms within the document:
+
+```{r}
+songTF$tf <- songTF$count/songTF$total
+
+rmarkdown::paged_table(songTF)
+```
+
+This provides a nice term frequency adjusted for the length of the document. There are others (e.g., log scaling, normalized, and double normalized), but this clearly-adjusted term frequency will more than suit our needs here. If we had documents of wildly-different lengths, we would explore some alternatives. 
+
+
+## Inverse Document Frequency
+
+We can know how many times any word was used within a text when we look at our term frequencies. Inverse document frequency (IDF) gives us something a little bit different. If a word is incredibly common, it might not be very important to a document; however, rare words might be important within our documents. To that end, we would assign a higher weight to words that occur less frequently than words that are common.
+
+We can calculate idf as the natural log of the number of the number of documents divided by the number of documents containing the term. We really don't need any fancy functions to make that calculation -- we can just do it by hand in a mutate function.
+
+```{r}
+idfDF <- songTF %>% 
+  group_by(word) %>% 
+  count() %>% 
+  mutate(idf = log((length(unique(songTF$song)) / n)))
+
+rmarkdown::paged_table(idfDF)
+```
+
+Our idf is just telling us what we need to know about the corpus-wide term counts. We can see that words that appear in all three of our songs have a very low idf, while words that appear in only song have a much higher idf.
+
+## tf-idf
+
+After considering the two in isolation, we can also consider what both of them will get for us together. If we take the term frequency to mean that words are appearing frequently within our text and we take our inverse document frequency to mean that we are only considering important words, we might imagine a set of words appearing commonly within a document, but not appearing within other documents as often. This would suggest high-weight words for a specific document. 
+
+It can be tempting to just cut stop words (which we will discuss next class) out and deal with everything that comes out -- this is not the place for that. Stopword removal, for all practical purposes, is brute force. If we want to have a bit of finese here, we want to leave open the possibility that words, even potentially common words within a document, can have different levels of importance across documents.
+
+To get our tf-idf, let's join our tf data and our idf data together:
+
+```{r}
+tfidfData <- merge(songTF, idfDF, by = "word")
+```
+
+
+And from there, it is just simple multiplication between our tf and our idf:
+
+```{r}
+tfidfData$tfIDF <- tfidfData$tf * tfidfData$idf
+
+rmarkdown::paged_table(tfidfData)
+```
+
+Let's take a look at our top 15 words for each song:
+
+```{r}
+tfidfData %>% 
+  group_by(song) %>% 
+  arrange(song, desc(tfIDF)) %>% 
+  slice(1:15) %>% 
+  rmarkdown::paged_table()
+```
+
+Pretty interesting, right? What is the story here, though? I might be tempted to say that one of these songs is incredibly formulaic, while the other two took a little bit of actual wordsmithing to write.
+
+### Practice Time
+
+Let's take about 20 minutes to work through the various those text descriptives. Just so that we can keep compounding everything, let's scrape some text from wikipedia. Since these will follow a pretty basic construction, grab one more page from Wikipedia (whatever you want).
+
+```{r, eval = FALSE}
+library(rvest)
+
+f13Link <- "https://en.wikipedia.org/wiki/Friday_the_13th_(franchise)"
+
+halloweenLink <- "https://en.wikipedia.org/wiki/Halloween_(franchise)"
+
+evilDeadLink <- "https://en.wikipedia.org/wiki/Evil_Dead"
+
+read_html() %>% # Links will go here
+  html_nodes() %>% # The p tag will work for getting page text
+  html_text() %>% 
+  paste0(., collapse = " ") %>% # Here we collapse everything into one string 
+  tolower() # Making the words consistent
+```
+
+```{r}
+f13Link <- "https://en.wikipedia.org/wiki/Friday_the_13th_(franchise)"
+
+f13 <- read_html(f13Link)%>%
+  html_nodes("p")%>%
+  html_text()%>%
+  paste0(.,collapse = " ")%>%
+  tolower()
+
+hal <- read_html(halloweenLink)%>%
+  html_nodes("p")%>%
+  html_text()%>%
+  paste0(.,collapse = " ")%>%
+  tolower()
+
+evl <- read_html(halloweenLink)%>%
+  html_nodes("p")%>%
+  html_text()%>%
+  paste0(.,collapse = " ")%>%
+  tolower()
+
+stringData <- data.frame(movie = c("f13", "hal", "evl"), 
+                      info = c(f13,hal,evl))
+
+movieToken <- stringData%>%
+  group_by(movie)%>%
+  tidytext::unnest_tokens(output="words",input = info)%>%
+  group_by(movie,words)%>%
+  count()
+
+```
+
+```{r}
+string_info <- stringData%>%
+  split(., .$movie) %>%
+  lapply(., function(x) {
+    songTokens = tm::MC_tokenizer(x$info)
+    tokenCount = as.data.frame(summary(as.factor(songTokens), maxsum = 1000))
+    total=length(songTokens)
+    tokenCount = data.frame(count = tokenCount[[1]], 
+                            word = row.names(tokenCount),
+                            total = total,
+                            movie=x$movie,
+                            row.names = NULL)
+    return(tokenCount)
+    }) 
+
+movie_info_2 = do.call("rbind", string_info)
+
+movie_info_2$tf <- movie_info_2$count/movie_info_2$total # tf means term frequency
+
+###???
+idfDF <- movie_info_2 %>% 
+  group_by(word) %>% 
+  count() %>% 
+  mutate(idf = log(
+                    (length(unique(movie_info_2$movie)) / n)  # does length unique(movie_info_2)always be 3???
+                  )
+         )
+
+tfidfData <- merge(movie_info_2, idfDF, by = "word")
+
+tfidfData$tfIDF <- tfidfData$tf * tfidfData$idf
+```
+```{r}
+#top 15 
+tfidfData %>% 
+  group_by(movie) %>% 
+  arrange(movie, desc(tfIDF)) %>% 
+  slice(1:15) 
+```
+
+```{r}
+stringData %>% 
+  unnest_tokens(., ngrams, info, token = "ngrams", n = 4) %>% 
+  tidyr::separate(ngrams, c("word1", "word2","word3","word4"), sep = "\\s") %>% 
+  count(word1, word2,word3, word4, sort = TRUE)
+```
+
+
+
+## Correlation (Collocation)
+
+Without looking ahead, what is likely the most common measure of association for two binary variables...$\phi$. Conceptually, phi is interpreted just like a Pearson correlation, so we can get a pretty good idea about words co-occurring together. We can calculate phi coefficients for words across documents. Here are all of the elements that we will need:
+
+```{r, echo = FALSE}
+library(tibble)
+
+tibble::tibble(` ` = c("Has word X", "No word X", "Total"),
+  `Has word Y` = c("n11", "n01", "n.1"),
+                   `No word Y` = c("n10", "n00", "n.0"), 
+                   Total = c("n1.", "no.", "n"), ) %>% 
+  knitr::kable()
+```
+
+And we find the correlation with the following:
+
+$$\phi = \frac{n_{11}n_{00} - n_{10}n_{01}}{\sqrt{n_1. n_0. n._0 n._1}} $$
+
+```{r, echo = FALSE}
+tibble::tibble(` ` = c("Has word X", "No word X", "Total"),
+  `Has word Y` = c("n11(100)", "n01(25)", "n.1(125)"),
+                   `No word Y` = c("n10(150)", "n00(40)", "n.0(190)"), 
+                   Total = c("n1.(250)", "no.(65)", "n(315)"), ) %>% 
+  knitr::kable()
+```
+
+
+```{r}
+phi <- ((100 * 40) - (150 * 25)) / sqrt(250 * 65 * 190 * 125)
+
+phi
+```
+
+That is a pretty small correlation, let's see a pattern that might result in something a bit more substantial:
+
+```{r, echo = FALSE}
+tibble::tibble(` ` = c("Has word X", "No word X", "Total"),
+  `Has word Y` = c("n11(150)", "n01(10)", "n.1(160)"),
+                   `No word Y` = c("n10(20)", "n00(20)", "n.0(40)"), 
+                   Total = c("n1.(170)", "no.(30)", "n(200)"), ) %>% 
+  knitr::kable()
+```
+
+
+```{r}
+phi <- ((150 * 20) - (20 * 10)) / sqrt(170 * 30 * 40 * 160)
+
+phi
+```
+
+Since we already know how we can tokenize our documents using non-tidy work, let's make things a little bit easier for ourselves and use the `widyr` and `tidytext` packages. 
+
+```{r}
+library(tidytext)
+
+library(widyr)
+
+songDataCor <- unnest_tokens(songData, words, lyrics)
+
+songDataCor <- songDataCor[!(songDataCor$words %in% stop_words$word), ]
+
+songDataCor %>% 
+  group_by(words) %>% 
+  filter(n() > 5) %>% 
+  pairwise_cor(., words, song, sort = TRUE) %>% 
+  rmarkdown::paged_table()
+```
+
+With relatively few documents, we don't really have too much interesting to explore here. We could, though, try something a little more interesting (and likely predictable). 
+
+Since we already saw some of the best that modern country has to offer, let's look at an entire album worth of country music (Luke Bryan should offer some predictable results). We can scrape the song lyrics from the Genius page.
+
+```{r, echo = FALSE}
+load("/Users/sethberry/courses/unstructured/data/killLightsLyrics.RData")
+```
+
+
+```{r, eval = FALSE}
+killTheLightsLink <- read_html("https://genius.com/albums/Luke-bryan/Kill-the-lights")
+
+links <- killTheLightsLink %>% 
+  html_nodes('a[href*="lyrics"]') %>% 
+  html_attr("href")
+
+killLightsLyrics <- lapply(links, function(x) {
+  songPage = read_html(x, encoding = "UTF-8") 
+  
+  lyrics = songPage %>% 
+    html_nodes(".lyrics") %>% 
+    html_text() %>% 
+    str_replace_all(., "\n", " ") %>% 
+    str_replace_all(., "\\[(.*?)\\]", "") %>% 
+    str_squish(.) %>% 
+    gsub("([a-z])([A-Z])", "\\1 \\2", .)
+  
+  title = songPage %>% 
+    html_nodes("title") %>% 
+    html_text() %>% 
+    stringr::str_extract(., "(?=\\s\\W\\s).*(?<=\\s\\W\\s)")
+  
+  res = data.frame(lyrics = lyrics, 
+                   title = title, 
+                   stringsAsFactors = FALSE)
+  
+  return(res)
+})
+
+killLightsLyrics = do.call("rbind", killLightsLyrics)
+
+```
+
+If you care to, you can look at the lyrics for each song (I don't recommend it).
+
+Now, we can go through our tokenizing, stopword filtering, and correlation generation again:
+
+```{r}
+albumCors <- unnest_tokens(killLightsLyrics, words, lyrics) %>% 
+  dplyr::filter(!(.$words %in% stop_words$word)) %>% 
+  pairwise_cor(., words, title, sort = TRUE)
+
+rmarkdown::paged_table(albumCors)
+```
+
+These correlations are far more interesting! 
+
+Out of pure curiosity, what is correlated with the word *coffee*?
+
+```{r}
+albumCors[albumCors$item1 == "coffee", ] %>% 
+  rmarkdown::paged_table()
+```
+
+## N-grams
+
+We have primarily been living in the space of single words (and if those single words appear alongside other single words in a text). We know, however, that words rarely appear in isolation -- this is where n-grams come into play. In this case, the *n* is any number that we want to use. In most text exploration, bigrams and trigrams are going to be the most common n-grams that you will use, but you could use anything.
+
+Poking fun at bad country is a good time, so let's keep exploring our previously gotten album:
+
+```{r}
+bigrams <- killLightsLyrics %>% 
+  unnest_tokens(., ngrams, lyrics, token = "ngrams", n = 2) %>% 
+  tidyr::separate(ngrams, c("word1", "word2"), sep = "\\s") %>% 
+  count(word1, word2, sort = TRUE)
+
+rmarkdown::paged_table(bigrams)
+```
+
+Here are some examples in Python, if you are interested:
+
+```{python}
+bigram_measures = nltk.collocations.BigramAssocMeasures()
+
+finder = nltk.BigramCollocationFinder.from_words(lyricsText)
+
+finder.nbest(bigram_measures.pmi, 10)
+```
+
+
+## String Distance And Similarity
+
+Now that we know a little bit about n-grams (and individual words), we can talk about string distances. If you ever need to know how similar (or dissimilar) two words/texts are, then string distances are what you need. But...which one should we use. 
+
+### Levenshtein
+
+This is probably the most common string distance metric you will see (it is pretty common in genetics research, among other areas). Conceptually, it is pretty easy -- we are just finding the number of changes that need to be made to one string to equal another string.
+
+Let's look at two names:
+
+```{r}
+library(stringdist)
+
+stringdist("bono", "gaga", method = "lv")
+```
+
+To transform "bono" into "gaga", we would need to replace the "b" with a "g", the "o" with an "a", the "n" with a "g", and the "o" with an "a" -- all leading to a Levenshtein distance of 4. We can also look at the similarity between the two:
+
+```{r}
+stringsim("bono", "gaga", method = "lv")
+```
+
+As to be expected. The similarity is computed as the string distance score, divide it by the maximum feasible distance, and then subtract from 1. 
+
+Those are clearly different words, but what about something a little closer together?
+
+```{r}
+stringdist("beauty", "beautiful", method = "lv")
+```
+
+Still 4. That is the tricky thing with Levenshtein distance -- string length matters.  
+
+Let's check the similarity now:
+
+```{r}
+stringsim("beauty", "beautiful", method = "lv")
+```
+
+We have our distance (4), divided by the max possible distance (beautiful has 9 letters, so 4 / 9 = .4444444), and subtract that from 1 (1 - .4444444 = .5555556). 
+
+
+The similarity here is a bit more telling than our distance. 
+
+### Jaccard
+
+The Jaccard Index is an extremely flexible metric that goes even beyond strings (it is used in computer vision, pure mathematics, and various other places). It is most useful when comparing sets as opposed to just words. 
+
+```{r}
+stringdist("soup can", "soup tin", method = "jaccard", q = 1)
+```
+
+We can also try it with different values of *q* to really get a feel for what is happening:
+
+```{r}
+stringdist("soup can", "soup tin", method = "jaccard", q = 2)
+```
+
+Why did our distance increase? Let's break our individual strings into bigrams:
+
+```{r}
+can = paste(unlist(NLP::ngrams(unlist(strsplit("soup can", "")), 2)), collapse = "")
+
+tin = paste(unlist(NLP::ngrams(unlist(strsplit("soup tin", "")), 2)), collapse = "")
+
+substring(can, seq(1, nchar(can) - 1, 2), seq(2, nchar(can), 2))
+
+substring(tin, seq(1, nchar(tin) - 1, 2), seq(2, nchar(tin), 2))
+```
+
+We see that we have 7 bigrams for our vectors. 
+
+```{r}
+stringdist("taco", "tako", method = "qgram", q = 2)
+
+stringsim("taco", "tako", method = "qgram", q = 2)
+```
+
+String distances can be handy for a great many tasks. If you want to find strings that are close to other strings (without being exact matches), then these distances can be useful. They can also be helpful when you want to join data frames with fields that might not match.  
+
+Let's consider the following:
+
+```{r}
+library(fuzzyjoin)
+
+companyData <- data.frame(name = c("Pepsi Co.", "PepsiCo", 
+                                   "Morgan Stanly", "Morgan Stanley"), 
+                          dollars = c(100, 10, 200, 20))
+
+companyData2 <- data.frame(name = c("Pepsi", "Pepsi Co", 
+                                    "Morgin Stanley", "Morgan Stanley "), 
+                           people = c("Bill", "Bill", "Sue", "Sue"))
+```
+
+Before we try to join these data frames, I want to introduce you to my favorite string distance measures: <a href="https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance">Jaro Winkler</a>. It gives a little more granularity than what some of the other metrics might.
+
+```{r}
+stringdist("taco", "tako", method = "jw")
+
+stringsim("taco", "tako", method = "jw")
+```
+
+```{r}
+stringdist_left_join(companyData, companyData, by = "name", 
+                     method = "jw", distance_col = "distance")
+```
+
+That is a little excessive, so we can specify our `max_dist` to help pull some of those matches back:
+
+```{r}
+stringdist_left_join(companyData, companyData, by = "name", 
+                     method = "jw", distance_col = "distance", 
+                     max_dist = .1)
+```
+
+Take warning, though, that this is not a magic bullet and you might need to do some exploring and further cleaning.

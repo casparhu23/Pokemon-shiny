@@ -1,0 +1,4 @@
+"0","stringData %>% "
+"0","  unnest_tokens(., ngrams, info, token = ""ngrams"", n = 4) %>% "
+"0","  tidyr::separate(ngrams, c(""word1"", ""word2"",""word3"",""word4""), sep = ""\\s"") %>% "
+"0","  count(word1, word2,word3, word4, sort = TRUE)"

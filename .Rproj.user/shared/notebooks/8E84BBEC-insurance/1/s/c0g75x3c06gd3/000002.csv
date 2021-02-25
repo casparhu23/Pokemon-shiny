@@ -1,0 +1,55 @@
+"0","library(lime)       # ML local interpretation"
+"2","
+Attaching package: ‘lime’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    explain
+
+"
+"0","library(vip)        # ML global interpretation"
+"2","
+Attaching package: ‘vip’
+
+"
+"2","The following object is masked from ‘package:utils’:
+
+    vi
+
+"
+"0","library(pdp)        # ML global interpretation"
+"2","
+Attaching package: ‘pdp’
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    partial
+
+"
+"0","library(caret)      # ML model building"
+"0",""
+"0","explainer_caret <- lime(smote_data, bst_initial, n_bins = 5)"
+"2","Gender_Female does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Gender_Male does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Driving_License_0 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Driving_License_1 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Insured_0 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Insured_1 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Age_1 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Age_2 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Age_3 does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Damage_No does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","Vehicle_Damage_Yes does not contain enough variance to use quantile binning. Using standard binning instead."
+"2","new_response does not contain enough variance to use quantile binning. Using standard binning instead."
+"0","explanation_caret <- explain("
+"0","  x = test_subset[6:9,1:14],  # choose 2 rows for local interpretation"
+"0","  explainer = explainer_caret, # use explainer"
+"0","  n_permutations = 500, # set the number of permutations for each explanation"
+"0","  n_features = 10, # the number of features to explain"
+"0","  n_labels = 1, # the number of label to explain "
+"0","  dist_fun = ""manhattan"","
+"0","  kernel_width = 3,"
+"0","  feature_select = ""lasso_path"""
+"0","  )"

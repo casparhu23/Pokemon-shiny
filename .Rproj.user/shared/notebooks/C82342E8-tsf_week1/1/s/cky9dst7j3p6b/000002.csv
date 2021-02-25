@@ -1,0 +1,8 @@
+"0","library(ggplot2)"
+"0","library(forecast)"
+"0","library(tseries)"
+"0","da <- read.table(""/Users/Caspar/Documents/Times Series Forecasting/data/Length_Female.txt"",header=T) #Load data"
+"0",""
+"0","# data are in centimeters"
+"0",""
+"0","head(da)"

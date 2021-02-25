@@ -1,0 +1,4 @@
+"0","shap_long = shap.prep(shap = shap_result, as.matrix(smote_data[,1:14]), top_n = 10)"
+"2","Loading required package: ggforce
+"
+"0","plot.shap.summary(data_long = shap_long)"

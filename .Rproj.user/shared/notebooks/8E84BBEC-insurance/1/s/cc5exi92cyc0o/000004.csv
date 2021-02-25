@@ -1,0 +1,9 @@
+"0","library(SHAPforxgboost)"
+"0","source(""a_insights_shap_functions.r"")"
+"0","shap_result <- shap.score.rank(xgb_model = bst_initial, "
+"0","                X_train =  dtrain_ins,"
+"0","                shap_approx = F)"
+"1","make SHAP score by decreasing order
+
+"
+"0","var_importance(shap_result, top_n=10)"

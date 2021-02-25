@@ -1,0 +1,403 @@
+"","No.","pokemon_name","type_1","type_2","abilities","locations_found","hp","attack","defence","sp_attack","sp_defence","speed"
+"1","1","Grookey","Grass","None","Overgrow Grassy Surge","Starter Pokemon",50,65,50,40,40,65
+"2","2","Thwackey","Grass","None","Overgrow Grassy Surge","Evolve Grookey",70,85,70,55,60,80
+"3","3","Rillaboom","Grass","None","Overgrow Grassy Surge","Evolve Thwackey",100,125,90,60,70,85
+"4","4","Scorbunny","Fire","None","Blaze Libero","Starter Pokemon",50,71,40,40,40,69
+"5","5","Raboot","Fire","None","Blaze Libero","Evolve Scorbunny",65,86,60,55,60,94
+"6","6","Cinderace","Fire","None","Blaze Libero","Evolve Cinderace",80,116,75,65,75,119
+"7","7","Sobble","Water","None","Torrent Sniper","Starter Pokemon",50,40,40,70,40,70
+"8","8","Drizzile","Water","None","Torrent Sniper","Evolve Sobble",65,60,55,95,55,90
+"9","9","Inteleon","Water","None","Torrent Sniper","Evolve Drizzile",70,85,65,125,65,120
+"10","10","Blipbug","Bug","None","Swarm Compoundeyes Telepathy","Route 1Route 2Slumbering WealdGiant's CapMax Raid Battles",25,20,20,25,45,45
+"11","11","Dottler","Bug","Psychic","Swarm Compoundeyes Telepathy","Route 5Giant's Cap, Giant's Mirror, Stony WildernessMax Raid Battles",50,35,80,50,90,30
+"12","12","Orbeetle","Bug","Psychic","Swarm Frisk Telepathy","Slumbering WealdLake of OutrageMax Raid Battles",60,45,110,80,120,90
+"13","13","Caterpie","Bug","None","Shield Dust Run Away","Route 1Max Raid Battles",45,30,35,20,20,45
+"14","14","Metapod","Bug","None","Shed Skin","Rolling FieldsMax Raid Battles",50,20,55,25,25,30
+"15","15","Butterfree","Bug","Flying","Compoundeyes Tinted Lens","Slumbering WealdEast Lake Axewell, Giant's Mirror, Rolling FieldsMax Raid Battles",60,45,50,90,80,70
+"16","16","Grubbin","Bug","None","Swarm","Route 1Slumbering WealdDappled Grove, East Lake Axewell, North Lake Miloch, Watchtower RuinsMax Raid Battles",47,62,45,55,45,46
+"17","17","Charjabug","Bug","Electric","Battery","Axew's Eye, Dusty Bowl, Hammerlocke HillsMax Raid Battles",57,82,95,55,75,36
+"18","18","Vikavolt","Bug","Electric","Levitate","Max Raid Battles",77,70,90,145,75,43
+"19","19","Hoothoot","Normal","Flying","Insomnia Keen Eye Tinted Lens","Route 1Route 2Slumbering WealdDappled Grove, Giant's CapMax Raid Battles",60,30,30,36,56,50
+"20","20","Noctowl","Normal","Flying","Insomnia Keen Eye Tinted Lens","Motostoke OutskirtsMotostoke Riverbanks, Giant's CapMax Raid Battles",100,50,50,86,96,70
+"21","21","Rookidee","Flying","None","Keen Eye Unnerve Big Pecks","Route 1Route 2Route 3Slumbering WealdMotostoke RiverbankMax Raid Battles",38,47,35,33,35,57
+"22","22","Corvisquire","Flying","None","Keen Eye Unnerve Big Pecks","Route 3Giant's Mirror, Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",68,67,55,43,55,77
+"23","23","Corviknight","Flying","Steel","Pressure Unnerve Mirror Armor","Route 7Slumbering WealdDusty Bowl, Lake of OutrageMax Raid Battles",98,87,105,53,85,67
+"24","24","Skwovet","Normal","None","Cheek Pouch Gluttony","Route 1Route 2Route 3Route 4Route 5Slumbering WealdDappled Grove, Motostoke Riverbank, North Lake Miloch, Rolling Fields, Watchtower RuinsMax Raid Battles",70,55,55,35,35,25
+"25","25","Greedent","Normal","None","Cheek Pouch Gluttony","Route 6Route 7Route 9Axew's Eye, Bridge Field, Giant's Cap, Giant's Mirror, Giant's Seat, Hammerlocke Hills, Lake of Outrage, Motostoke RiverbankMax Raid Battles",120,95,95,55,75,20
+"26","26","Pidove","Normal","Flying","Big Pecks Super Luck Rivalry","East Lake Axewell, North Lake Miloch, Rolling Fields, Watchtower RuinsMax Raid Battles",50,55,50,36,30,43
+"27","27","Tranquill","Normal","Flying","Big Pecks Super Luck Rivalry","Bridge Field, Giant's Mirror, Giant's Seat, Stony WildernessMax Raid Battles",62,77,62,50,42,65
+"28","28","Unfezant","Normal","Flying","Big Pecks Super Luck Rivalry","Axew's Eye, Hammerlocke HillsMax Raid Battles",80,115,80,65,55,93
+"29","29","Nickit","Dark","None","Run Away Unburden Stakeout","Route 1Route 2Dusty Bowl, Giant's Mirror, Stony WildernessMax Raid Battles",40,28,28,47,52,50
+"30","30","Thievul","Dark","None","Run Away Unburden Stakeout","Route 7Route 9Bridge Field, Hammerlocke Hills, Stony WildernessMax Raid Battles",70,58,58,87,92,90
+"31","31","Galarian Zigzagoon","Dark","Normal","Pickup Gluttony Quick Feet","Route 2Route 3Bridge Field, Giant's Cap, Stony WildernessMax Raid Battles",38,30,41,30,41,60
+"32","32","Galarian Linoone","Dark","Normal","Pickup Gluttony Quick Feet","Giant's CapMax Raid Battles",78,70,61,50,61,100
+"33","33","Obstagoon","Dark","Normal","Reckless Guts Defiant","Route 2Lake of OutrageMax Raid Battles",93,90,101,60,81,95
+"34","34","Wooloo","Normal","None","Fluffy Run Away Bulletproof","Route 1Route 4Motostoke RiverbankMax Raid Battles",42,40,55,40,45,48
+"35","35","Dubwool","Normal","None","Fluffy Steadfast Bulletproof","Dusty Bowl, Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",72,80,100,60,90,88
+"36","36","Lotad","Water","Grass","Swift Swim Rain Dish Own Tempo","Route 2Dappled Grove, Rolling Fields, West Lake AxewellMax Raid Battles",40,30,30,40,50,30
+"37","37","Lombre","Water","Grass","Swift Swim Rain Dish Own Tempo","Route 5Dappled Grove, Giant's Cap, Giant's Seat, South Lake MilochMax Raid Battles",60,50,50,60,70,50
+"38","38","Ludicolo","Water","Grass","Swift Swim Rain Dish Own Tempo","Max Raid Battles",80,70,70,90,100,70
+"39","39","Seedot","Grass","None","Chlorophyll Early Bird Pickpocket","Route 2Dappled Grove, West Lake AxewellMax Raid Battles",40,40,50,30,30,30
+"40","40","Nuzleaf","Grass","Dark","Chlorophyll Early Bird Pickpocket","Route 5Dappled Grove, Giant's Cap, Giant's Seat, Rolling Fields, South Lake MilochMax Raid Battles",70,70,40,60,40,60
+"41","41","Shiftry","Grass","Dark","Chlorophyll Early Bird Pickpocket","Max Raid Battles",90,100,60,90,60,80
+"42","42","Chewtle","Water","None","Strong Jaw Shell Armor Swift Swim","Route 2Route 4Route 5Galar Mine No. 2MotostokeMotostoke OutskirtsHulburyGiant's Cap, Giant's Mirror, Motostoke RiverbankMax Raid Battles",50,64,50,38,38,44
+"43","43","Drednaw","Water","Rock","Strong Jaw Shell Armor Swift Swim","Route 2Route 6Galar Mine No. 2Bridge Field, Dusty Bowl, Giant's Cap, Giant's Mirror, Lake of OutrageMax Raid Battles",90,115,90,48,68,74
+"44","44","Purrloin","Dark","None","Limber Unburden Prankster","Route 2Dappled Grove, Motostoke Riverbank, East Lake Axewell, North Lake Miloch, West Lake Axewell, Watchtower RuinsMax Raid Battles",41,50,37,50,37,66
+"45","45","Liepard","Dark","None","Limber Unburden Prankster","Route 7Route 9Axew's Eye, Bridge Field, Giant's Cap, Giant's SeatMax Raid Battles",64,88,50,88,50,106
+"46","46","Yamper","Electric","None","Ball Fetch Rattled","Route 2Route 4Giant's Mirror, Motostoke Riverbank, Stony WildernessMax Raid Battles",59,45,50,40,50,26
+"47","47","Boltund","Electric","None","Strong Jaw Competitive","Dusty Bowl, Lake of Outrage, Motostoke RiverbankMax Raid Battles",69,90,60,90,60,121
+"48","48","Bunnelby","Normal","None","Pickup Cheek Pouch Huge Power","Dappled Grove, East Lake Axewell, Giant's Cap, North Lake Miloch, Rolling Fields, West Lake AxewellMax Raid Battles",38,36,38,32,36,57
+"49","49","Diggersby","Normal","Ground","Pickup Cheek Pouch Huge Power","Axew's Eye, Bridge Field, Giant's Cap, Giant's Mirror, Giant's Seat, North Lake MilochMax Raid Battles",85,56,77,50,77,78
+"50","50","Minccino","Normal","None","Cute Charm Technician Skill Link","Route 5East Lake Axewell, Giant's Cap, Rolling FieldsMax Raid Battles",55,50,40,40,40,75
+"51","51","Cinccino","Normal","None","Cute Charm Technician Skill Link","Max Raid Battles",75,95,60,65,60,115
+"52","52","Bounsweet","Grass","None","Leaf Guard Oblivious Sweet Veil","Dappled Grove, East Lake Axewell, Rolling Fields, Stony Wilderness, Watchtower Ruins, West Lake AxewellMax Raid Battles",42,30,38,30,38,32
+"53","53","Steenee","Grass","None","Leaf Guard Oblivious Sweet Veil","Axew's EyeMax Raid Battles",52,40,48,40,48,62
+"54","54","Tsareena","Grass","None","Leaf Guard Queenly Majesty Sweet Veil","Max Raid Battles",72,120,98,50,98,72
+"55","55","Oddish","Grass","Poison","Chlorophyll Run Away","Dappled Grove, East Lake Axewell, Rolling Fields, Watchtower RuinsMax Raid Battles",45,50,55,75,65,30
+"56","56","Gloom","Grass","Poison","Chlorophyll Stench","Axew's Eye, Giant's Cap, Giant's Mirror, North Lake MilochMax Raid Battles",60,65,70,85,75,40
+"57","57","Vileplume","Grass","Poison","Chlorophyll Effect Spore","Max Raid Battles",75,80,85,110,90,50
+"58","58","Bellossom","Grass","None","Chlorophyll Healer","Max Raid Battles",75,80,95,90,100,50
+"59","59","Budew","Grass","Poison","Natural Cure Poison Point Leaf Guard","Route 4Dappled Grove, East Lake Axewell, Giant's Mirror, Rolling Fields, West Lake AxewellMax Raid Battles",40,30,35,50,70,55
+"60","60","Roselia","Grass","Poison","Natural Cure Poison Point Leaf Guard","Axew's Eye, Dusty Bowl, Giant's Mirror, South Lake MilochMax Raid Battles",50,60,45,100,80,65
+"61","61","Roserade","Grass","Poison","Natural Cure Poison Point Technician","Max Raid Battles",60,70,65,125,105,90
+"62","62","Wingull","Water","Flying","Keen Eye Hydration Rain Dish","East Lake Axewell, North Lake Miloch, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",40,30,30,55,30,85
+"63","63","Pelipper","Water","Flying","Keen Eye Drizzle Rain Dish","Route 9Axew's Eye, Dusty Bowl, Hammerlocke Hills, Lake of OutrageMax Raid Battles",60,50,100,95,70,65
+"64","64","Joltik","Bug","Electric","Compoundeyes Unnerve Swarm","Route 4Dappled Grove, East Lake Axewell, Giant's Cap, Giant's Mirror, North Lake Miloch, Rolling Fields, South Lake Miloch, West Lake AxewellMax Raid Battles",50,47,50,57,50,65
+"65","65","Galvantula","Bug","Electric","Compoundeyes Unnerve Swarm","Route 7Lake of OutrageMax Raid Battles",70,77,60,97,60,108
+"66","66","Electrike","Electric","None","Static Lightning Rod Minus","Route 4Dappled Grove, Dusty Bowl, East Lake Axewell, Giant's Seat, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",40,45,40,65,40,65
+"67","67","Manectric","Electric","None","Static Lightning Rod Minus","Axew's Eye, Giant's Cap, Giant's SeatMax Raid Battles",70,75,60,105,60,105
+"68","68","Vulpix","Fire","None","Flash Fire Drought","Route 3Axew's Eye, Dappled Grove, East Lake Axewell, Giant's Seat, North Lake Miloch, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid BattlesMotosoke GymDusty Bowl, Hammerlocke Hills",38,41,40,50,65,65
+"69","69","Ninetales","Fire","None","Flash Fire Drought","Max Raid BattlesLake of Outrage",73,76,75,81,100,100
+"70","70","Growlithe","Fire","None","Intimidate Flash Fire Justified","Motostoke GymDusty Bowl, Hammerlocke HillsRoute 3Axew's Eye, Dappled Grove, East Lake Axewell, Giant's Seat, North Lake Miloch, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",55,70,45,70,50,60
+"71","71","Arcanine","Fire","None","Intimidate Flash Fire Justified","Max Raid BattlesLake of Outrage",90,110,80,100,80,95
+"72","72","Vanillite","Ice","None","Ice Body Snow Cloak Weak Armor","Bridge Field, Dappled Grove, East Lake Axewell, Giant's Cap, Giant's Mirror, Hammerlocke Hills, Lake of Outrage, Motostoke Riverbank, North Lake Miloch, Rolling Fields, South Lake Miloch, West Lake AxewellMax Raid Battles",36,50,50,65,60,44
+"73","73","Vanillish","Ice","None","Ice Body Snow Cloak Weak Armor","Route 8Route 10Axew's Eye, Dusty BowlMax Raid Battles",51,65,65,80,75,59
+"74","74","Vanilluxe","Ice","None","Ice Body Snow Warning Weak Armor","Route 10Lake of OutrageMax Raid Battles",71,95,85,110,95,79
+"75","75","Swinub","Ice","Ground","Oblivious Snow Cloak Thick Fat","Giant's Mirror, Giant's Seat, Hammerlocke Hills, Rolling FieldsMax Raid BattlesDusty Bowl",50,50,40,30,30,50
+"76","76","Piloswine","Ice","Ground","Oblivious Snow Cloak Thick Fat","Dusty Bowl, Lake of OutrageMax Raid Battles",100,100,80,60,60,50
+"77","77","Mamoswine","Ice","Ground","Oblivious Snow Cloak Thick Fat","Max Raid Battles",110,130,80,70,60,80
+"78","78","Delibird","Ice","Flying","Vital Spirit Hustle Insomnia","Route 8Axew's Eye, Dappled Grove, Dusty Bowl, Giant's Cap, Giant's Mirror, Giant's Seat, Hammerlocke Hills, North Lake Miloch, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",45,55,45,65,45,75
+"79","79","Snorunt","Ice","None","Inner Focus Ice Body Moody","Route 8Dappled Grove, East Lake Axewell, Giant's Cap, Giant's Seat, Hammerlocke Hills, North Lake Miloch, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",50,50,50,50,50,50
+"80","80","Glalie","Ice","None","Inner Focus Ice Body Moody","Route 9Route 10Lake of OutrageMax Raid Battles",80,80,80,80,80,80
+"81","81","Froslass","Ice","Ghost","Snow Cloak Cursed Body","Max Raid Battles",70,80,70,80,70,110
+"82","82","Baltoy","Ground","Psychic","Levitate","Axew's Eye, Bridge Field, Dappled Grove, East Lake Axewell, Giant's Cap, Hammerlocke Hills, North Lake Miloch, Rolling Fields, South Lake Miloch, Stony Wilderness, West Lake AxewellMax Raid Battles",40,40,55,40,70,55
+"83","83","Claydol","Ground","Psychic","Levitate","Axew's Eye, Lake of OutrageMax Raid Battles",60,70,105,70,120,75
+"84","84","Mudbray","Ground","None","Own Tempo Stamina Inner Focus","Route 3Dappled Grove, East Lake Axewell, Giant's Cap, Giant's Seat, North Lake Miloch, Rolling Fields, South Lake Miloch, West Lake AxewellMax Raid Battles",70,100,70,45,55,45
+"85","85","Mudsdale","Ground","None","Own Tempo Stamina Inner Focus","Axew's Eye, Dusty Bowl, Giant's SeatMax Raid Battles",100,125,100,55,85,35
+"86","86","Dwebble","Bug","Rock","Sturdy Shell Armor Weak Armor","East Lake Axewell, Giant's Seat, Hammerlocke Hills, North Lake Miloch, Rolling Fields, South Lake Miloch, Stony Wilderness, Watchtower Ruins, West Lake AxewellMax Raid Battles",50,65,85,35,35,55
+"87","87","Crustle","Bug","Rock","Sturdy Shell Armor Weak Armor","Route 8Axew's EyeMax Raid Battles",70,105,125,65,75,45
+"88","88","Golett","Ground","Ghost","Iron Fist Klutz No Guard","Route 8Dappled Grove, Giant's Cap, Giant's Seat, North Lake Miloch, Rolling Fields, Stony Wilderness, Watchtower RuinsMax Raid Battles",59,74,50,35,50,35
+"89","89","Golurk","Ground","Ghost","Iron Fist Klutz No Guard","Lake of OutrageMax Raid Battles",89,124,80,55,80,55
+"90","90","Munna","Psychic","None","Forewarn Synchronize Telepathy","Axew's Eye, Bridge Field, East Lake Axewell, Giant's Cap, Giant's Seat, Rolling Fields, Slumbering Weald, Stony WildernessMax Raid Battles",76,25,45,67,55,24
+"91","91","Musharna","Psychic","None","Forewarn Synchronize Telepathy","Max Raid Battles",116,55,85,107,95,29
+"92","92","Natu","Psychic","Flying","Synchronize Early Bird Magic Bounce","Giant's Mirror, Giant's Seat, North Lake Miloch, Rolling Fields, South Lake Miloch, West Lake AxewellMax Raid Battles",40,50,45,70,45,70
+"93","93","Xatu","Psychic","Flying","Synchronize Early Bird Magic Bounce","Giant's SeatMax Raid Battles",65,75,70,95,70,95
+"94","94","Stufful","Normal","Fighting","Fluffy Klutz Cute Charm","Route 5Bridge Field, Dappled Grove, East Lake Axewell, Giant's Seat, Hammerlocke Hills, North Lake MilochMax Raid Battles",70,75,50,45,50,50
+"95","95","Bewear","Normal","Fighting","Fluffy Klutz Unnerve","Axew's Eye, Giant's Seat, Lake of OutrageMax Raid Battles",120,125,80,55,60,60
+"96","96","Snover","Grass","Ice","Snow Warning Soundproof","Route 8Route 10Axew's Eye, Dappled Grove, Dusty Bowl, East Lake Axewell, Giant's Cap, Giant's Mirror, Giant's Seat, North Lake Miloch, South Lake Miloch, Watchtower RuinsMax Raid Battles",60,62,50,62,60,40
+"97","97","Abomasnow","Grass","Ice","Snow Warning Soundproof","Route 10Dusty Bowl, Lake of OutrageMax Raid Battles",90,92,75,92,85,60
+"98","98","Krabby","Water","None","Hyper Cutter Shell Armor Sheer Force","Giant's Cap, South Lake Miloch, West Lake AxewellMax Raid Battles",30,105,90,25,25,50
+"99","99","Kingler","Water","None","Hyper Cutter Shell Armor Sheer Force","Route 9Axew's EyeMax Raid Battles",55,130,115,50,50,75
+"100","100","Wooper","Water","Ground","Damp Water Absorb Unaware","Giant's Cap, Giant's Seat, South Lake Miloch, West Lake AxewellMax Raid Battles",55,45,45,25,25,15
+"101","101","Quagsire","Water","Ground","Damp Water Absorb Unaware","Giant's Cap, Giant's Seat, Lake of OutrageMax Raid Battles",95,85,85,65,65,35
+"102","102","Corphish","Water","None","Hyper Cutter Shell Armor Adaptability","Galar Mine No. 2Giant's Cap, South Lake MilochMax Raid Battles",43,80,65,50,35,35
+"103","103","Crawdaunt","Water","Dark","Hyper Cutter Shell Armor Adaptability","TurffieldAxew's Eye, Giant's SeatMax Raid Battles",63,120,85,90,55,55
+"104","104","Nincada","Bug","Ground","Compoundeyes Run Away","Route 5South Lake Miloch, West Lake AxewellMax Raid Battles",31,45,90,30,30,40
+"105","105","Ninjask","Bug","Flying","Speed Boost Infiltrator","Stony WildernessMax Raid Battles",61,90,45,50,50,160
+"106","106","Shedinja","Bug","Ghost","Wonder Guard","Max Raid Battles",1,90,45,30,30,40
+"107","107","Tyrogue","Fighting","None","Guts Steadfast Vital Spirit","Route 3Dappled Grove, Giant's Seat, Rolling Fields, South Lake Miloch, Stony Wilderness, West Lake AxewellMax Raid Battles",35,35,35,35,35,35
+"108","108","Hitmonlee","Fighting","None","Limber Reckless Unburden","Max Raid BattlesDusty Bowl",50,120,53,35,110,87
+"109","109","Hitmonchan","Fighting","None","Keen Eye Iron Fist Inner Focus","Max Raid BattlesDusty Bowl",50,105,79,35,110,76
+"110","110","Hitmontop","Fighting","None","Intimidate Technician Steadfast","Lake of OutrageMax Raid Battles",50,95,95,35,110,70
+"111","111","Pancham","Fighting","None","Iron Fist Mold Breaker Scrappy","Route 3East Lake Axewell, Rolling Fields, West Lake AxewellMax Raid Battles",67,82,62,46,48,43
+"112","112","Pangoro","Fighting","Dark","Iron Fist Mold Breaker Scrappy","Lake of OutrageMax Raid Battles",95,124,78,69,71,58
+"113","113","Klink","Steel","None","Plus Minus Clear Body","Route 3Axew's Eye, Dappled Grove, Hammerlocke Hills, North Lake Miloch, South Lake Miloch, West Lake AxewellMax Raid Battles",40,55,70,45,60,30
+"114","114","Klang","Steel","None","Plus Minus Clear Body","Route 10Dusty BowlMax Raid Battles",60,80,95,70,85,50
+"115","115","Klinklang","Steel","None","Plus Minus Clear Body","Lake of OutrageMax Raid Battles",60,100,115,70,85,90
+"116","116","Combee","Bug","Flying","Honey Gather Hustle","Rolling FieldsMax Raid Battles",30,30,42,30,42,70
+"117","117","Vespiquen","Bug","Flying","Pressure Unnerve","Max Raid Battles",70,80,102,80,102,40
+"118","118","Bronzor","Steel","Psychic","Levitate Heatproof Heavy Metal","Bridge Field, Giant's Seat, South Lake MilochMax Raid Battles",57,24,86,24,86,23
+"119","119","Bronzong","Steel","Psychic","Levitate Heatproof Heavy Metal","Route 8Axew's Eye, Dusty Bowl, Lake of OutrageMax Raid Battles",67,89,116,79,116,33
+"120","120","Ralts","Psychic","Fairy","Synchronize Trace Telepathy","Dappled Grove, North Lake Miloch, Rolling Fields, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",28,25,25,45,35,40
+"121","121","Kirlia","Psychic","Fairy","Synchronize Trace Telepathy","Max Raid Battles",38,35,35,65,55,50
+"122","122","Gardevoir","Psychic","Fairy","Synchronize Trace Telepathy","Dusty Bowl, Lake of OutrageMax Raid Battles",68,65,65,125,115,80
+"123","123","Gallade","Psychic","Fighting","Steadfast Justified","Max Raid Battles",68,125,65,65,115,80
+"124","124","Drifloon","Ghost","Flying","Aftermath Unburden Flare Boost","Route 5North Lake Miloch, South Lake Miloch, Watchtower RuinsMax Raid Battles",90,50,34,60,44,70
+"125","125","Drifblim","Ghost","Flying","Aftermath Unburden Flare Boost","Axew's EyeMax Raid Battles",150,80,44,90,54,80
+"126","126","Gossifleur","Grass","None","Cotton Down Regenerator Effect Spore","Route 2Route 3Motostoke RiverbankMax Raid Battles",40,40,60,40,60,10
+"127","127","Eldegoss","Grass","None","Cotton Down Regenerator Effect Spore","Dusty Bowl, Giant's Cap, Motostoke Riverbank, Stony WildernessMax Raid Battles",60,50,90,80,120,60
+"128","128","Cherubi","Grass","None","Chlorophyll","Route 3Axew's Eye, Bridge Field, Dappled Grove, Giant's Cap, Giant's Mirror, Giant's Seat, Hammerlocke Hills, Lake of Outrage, Motostoke Riverbank, North Lake Miloch, Rolling Fields, Watchtower RuinsMax Raid Battles",45,35,45,62,53,35
+"129","129","Cherrim","Grass","None","Flower Gift","Max Raid Battles",70,60,70,87,78,85
+"130","130","Stunky","Poison","Dark","Stench Aftermath Keen Eye","Route 3Dappled Grove, Giant's Cap, North Lake Miloch, South Lake MilochMax Raid Battles",63,63,47,41,41,74
+"131","131","Skuntank","Poison","Dark","Stench Aftermath Keen Eye","Dusty Bowl, Lake of OutrageMax Raid Battles",103,93,67,71,61,84
+"132","132","Tympole","Water","None","Swift Swim Hydration Water Absorb","Dappled Grove, North Lake Miloch, South Lake Miloch, Watchtower Ruins, West Lake AxewellMax Raid Battles",50,50,40,50,40,64
+"133","133","Palpitoad","Water","Ground","Swift Swim Hydration Water Absorb","Bridge Field, Dusty Bowl, Giant's Cap, Giant's Mirror, Giant's Seat, Hammerlocke Hills, North Lake MilochMax Raid Battles",75,65,55,65,55,69
+"134","134","Seismitoad","Water","Ground","Swift Swim Poison Touch Water Absorb","Route 7Axew's Eye, Lake of OutrageMax Raid Battles",105,95,75,85,75,74
+"135","135","Duskull","Ghost","None","Levitate Frisk","Route 6Dusty Bowl, Giant's Cap, Giant's Seat, Motostoke Riverbank, Watchtower RuinsMax Raid Battles",20,40,90,30,90,25
+"136","136","Dusclops","Ghost","None","Pressure Frisk","Route 8Max Raid Battles",40,70,130,60,130,25
+"137","137","Dusknoir","Ghost","None","Pressure Frisk","Max Raid Battles",45,100,135,65,135,45
+"138","138","Machop","Fighting","None","Guts No Guard Steadfast","Route 3Giant's Mirror, Giant's Seat, North Lake Miloch, South Lake Miloch, Stony Wilderness, Watchtower RuinsMax Raid Battles",70,80,50,35,35,35
+"139","139","Machoke","Fighting","None","Guts No Guard Steadfast","Axew's Eye, Giant's Seat, Hammerlocke Hills, Stony WildernessMax Raid Battles",80,100,70,50,60,45
+"140","140","Machamp","Fighting","None","Guts No Guard Steadfast","Max Raid Battles",90,130,80,65,85,55
+"141","141","Gastly","Ghost","Poison","Levitate","Giant's Seat, Hammerlocke Hills, North Lake Miloch, Watchtower RuinsMax Raid Battles",30,35,30,100,35,80
+"142","142","Haunter","Ghost","Poison","Levitate","Route 8Giant's SeatMax Raid Battles",45,50,45,115,55,95
+"143","143","Gengar","Ghost","Poison","Cursed Body","Max Raid BattlesGiant's CapWatchtower Ruins",60,65,60,130,75,110
+"144","144","Magikarp","Water","None","Swift Swim Rattled","Route 2Route 4Route 5Route 6Slumbering WealdAxew's Eye, Bridge Field, East Lake Axewell, Motostoke, North Lake Miloch, South Lake Miloch, West Lake AxewellMax Raid Battles",20,10,55,15,20,80
+"145","145","Gyarados","Water","Flying","Intimidate Moxie","Route 2Axew's Eye, Bridge Field, Dusty Bowl, Giant's Cap, Giant's Mirror, Giant's Seat, Lake of OutrageMax Raid Battles",95,125,79,60,100,81
+"146","146","Goldeen","Water","None","Swift Swim Water Veil Lightning Rod","Route 4Route 5Route 6Bridge Field, East Lake Axewell, Giant's Cap, North Lake Miloch, South Lake Miloch, West Lake AxewellMax Raid Battles",45,67,60,35,50,63
+"147","147","Seaking","Water","None","Swift Swim Water Veil Lightning Rod","Max Raid Battles",80,92,65,65,80,68
+"148","148","Remoraid","Water","None","Hustle Sniper Moody","Route 9South Lake Miloch, West Lake AxewellMax Raid Battles",35,65,35,65,35,65
+"149","149","Octillery","Water","None","Suction Cups Sniper Moody","Route 9Axew's EyeMax Raid Battles",75,105,75,105,75,45
+"150","150","Shellder","Water","None","Shell Armor Skill Link Overcoat","East Lake Axewell, Giant's Seat, West Lake AxewellMax Raid Battles",30,65,100,45,25,40
+"151","151","Cloyster","Water","Ice","Shell Armor Skill Link Overcoat","Giant's SeatMax Raid Battles",50,95,180,85,45,70
+"152","152","Feebas","Water","None","Swift Swim Oblivious Adaptability","Route 2Max Raid Battles",20,15,20,10,55,80
+"153","153","Milotic","Water","None","Marvel Scale Competitive Cute Charm","Max Raid Battles",95,60,79,100,125,81
+"154","154","Basculin","Water","None","Reckless Adaptability Mold Breaker","HulburyMotostoke Riverbank, North Lake MilochMax Raid Battles",70,92,65,80,55,98
+"155","155","Wishiwashi","Water","None","Schooling","Route 9HulburyAxew's Eye, East Lake Axewell, West Lake AxewellMax Raid Battles",45,20,20,25,25,40
+"156","156","Pyukumuku","Water","None","Innards Out Unaware","Route 9Giant's Seat, South Lake MilochMax Raid Battles",55,60,130,30,130,5
+"157","157","Trubbish","Poison","None","Stench Sticky Hold Aftermath","Route 3Max Raid Battles",50,50,62,40,62,65
+"158","158","Garbodor","Poison","None","Stench Weak Armor Aftermath","Lake of OutrageMax Raid Battles",80,95,82,60,82,75
+"159","159","Sizzlipede","Fire","Bug","Flash Fire White Smoke Flame Body","Route 3Motostoke GymMax Raid Battles",50,65,45,50,50,45
+"160","160","Centiskorch","Fire","Bug","Flash Fire White Smoke Flame Body","Max Raid Battles",100,115,65,90,90,65
+"161","161","Rolycoly","Rock","None","Steam Engine Heatproof Flash Fire","Route 3Galar MineGiant's Cap, Motostoke RiverbankMax Raid Battles",30,40,50,40,50,30
+"162","162","Carkol","Rock","Fire","Steam Engine Flame Body Flash Fire","Galar MineBridge Field, Giant's Cap, Stony WildernessMax Raid Battles",80,60,90,60,70,50
+"163","163","Coalossal","Rock","Fire","Steam Engine Flame Body Flash Fire","Dusty Bowl, Lake of OutrageMax Raid Battles",110,80,120,80,90,30
+"164","164","Diglett","Ground","None","Sand Veil Arena Trap Sand Force","Route 4Galar MineGiant's Mirror, Rolling FieldsMax Raid Battles",10,55,25,35,45,95
+"165","165","Dugtrio","Ground","None","Sand Veil Arena Trap Sand Force","Route 6Dusty Bowl, Giant's Cap, Giant's Mirror, Hammerlocke Hills, Lake of OutrageMax Raid Battles",35,100,50,50,70,120
+"166","166","Drilbur","Ground","None","Sand Rush Sand Force Mold Breaker","Galar MineDusty Bowl, Giant's Cap, Giant's Mirror, Hammerlocke Hills, Stony WildernessMax Raid Battles",60,85,40,30,45,68
+"167","167","Excadrill","Ground","Steel","Sand Rush Sand Force Mold Breaker","Giant's Mirror, Lake of OutrageMax Raid Battles",110,135,60,50,65,88
+"168","168","Roggenrola","Rock","None","Sturdy Weak Armor Sand Force","Galar MineMotostoke OutskirtsRolling Fields, Stony WildernessMax Raid Battles",55,75,85,25,25,15
+"169","169","Boldore","Rock","None","Sturdy Weak Armor Sand Force","Route 8Giant's Cap, Giant's Mirror, Lake of Outrage, Stony WildernessMax Raid Battles",70,105,105,50,40,20
+"170","170","Gigalith","Rock","None","Sturdy Sand Stream Sand Force","Max Raid Battles",85,135,130,60,80,25
+"171","171","Timburr","Fighting","None","Guts Sheer Force Iron Fist","Galar MineMax Raid Battles",75,80,55,25,35,35
+"172","172","Gurdurr","Fighting","None","Guts Sheer Force Iron Fist","Route 8Dusty Bowl, Stony WildernessMax Raid Battles",85,105,85,40,50,40
+"173","173","Conkeldurr","Fighting","None","Guts Sheer Force Iron Fist","Max Raid Battles",105,140,95,55,65,45
+"174","174","Woobat","Psychic","Flying","Unaware Klutz Simple","Galar MineBridge Field, Giant's Mirror, Watchtower RuinsMax Raid Battles",65,45,43,55,43,72
+"175","175","Swoobat","Psychic","Flying","Unaware Klutz Simple","Max Raid Battles",67,57,55,77,55,114
+"176","176","Noibat","Flying","Dragon","Frisk Infiltrator Telepathy","Galar Mine No. 2Bridge Field, Watchtower RuinsMax Raid Battles",40,30,35,45,40,55
+"177","177","Noivern","Flying","Dragon","Frisk Infiltrator Telepathy","Lake of OutrageMax Raid Battles",85,70,80,97,80,123
+"178","178","Onix","Rock","Ground","Rock Head Sturdy Weak Armor","East Lake Axewell, Giant's Seat, Motostoke RiverbankMax Raid Battles",35,45,160,30,45,70
+"179","179","Steelix","Steel","Ground","Rock Head Sturdy Sheer Force","Max Raid Battles",75,85,200,55,65,30
+"180","180","Arrokuda","Water","None","Swift Swim Propeller Tail","Route 2HulburyMotostoke RiverbankMax Raid Battles",41,63,40,40,30,66
+"181","181","Barraskewda","Water","None","Swift Swim Propeller Tail","Route 2Dusty Bowl, Lake of Outrage, Motostoke RiverbankMax Raid Battles",61,123,60,60,50,136
+"182","182","Galarian Meowth","Steel","None","Pickup Tough Claws Unnerve","Route 4Max Raid Battles",50,65,55,40,40,40
+"183","182","Meowth","Normal","None","Pickup Tough Claws Unnerve","NPC Trade",50,65,55,40,40,40
+"184","183","Perrserker","Steel","None","Battle Armor Tough Claws Steely Spirit","Route 7Route 9Lake of OutrageMax Raid Battles",70,110,100,50,60,50
+"185","184","Persian","Normal","None","Limber Technician Unnerve","Evolve Kanto Meowth",65,70,60,65,65,115
+"186","185","Milcery","Fairy","None","Sweet Veil Aroma Veil","Route 4Bridge Field, Giant's MirrorMax Raid Battles",45,40,40,50,61,34
+"187","186","Alcremie","Fairy","None","Sweet Veil Aroma Veil","Max Raid BattlesView our How to evolve Milcery Guide, by clicking here.",65,60,75,110,121,64
+"188","187","Cutiefly","Bug","Fairy","Honey Gather Shield Dust Sweet Veil","Route 4Bridge Field, Giant's Mirror, Motostoke RiverbankMax Raid Battles",40,45,40,55,40,84
+"189","188","Ribombee","Bug","Fairy","Honey Gather Shield Dust Sweet Veil","Stony WildernessMax Raid Battles",60,55,60,95,70,124
+"190","189","Ferroseed","Grass","Steel","Iron Barbs","Route 4,Bridge Field, Motostoke Riverbank, Stony WildernessMax Raid Battles",44,50,91,24,86,10
+"191","190","Ferrothorn","Grass","Steel","Iron Barbs Anticipation","Dusty BowlMax Raid Battles",74,94,131,54,116,20
+"192","191","Pumpkaboo","Ghost","Grass","Pickup Frisk Insomnia","Route 4Giant's Mirror, Hammerlocke HillsMax Raid Battles",49,66,70,44,55,51
+"193","192","Gourgeist","Ghost","Grass","Pickup Frisk Insomnia","Max Raid Battles",65,90,122,58,75,84
+"194","193","Pichu","Electric","None","Static Lightning Rod","Max Raid Battles",20,40,15,35,35,60
+"195","194","Pikachu","Electric","None","Static Lightning Rod","Route 4Stony WildernessMax Raid BattlesSee How to Get a Gigantamax Pikachu",35,55,40,50,50,90
+"196","195","Raichu","Electric","None","Static Lightning Rod","Max Raid Battles",60,90,55,90,80,110
+"197","196","Eevee","Normal","None","Run Away Adaptability Anticipation","Route 4Stony WildernessMax Raid BattlesSee how to get gifted a Gigantamax Eevee",55,55,50,45,65,55
+"198","197","Vaporeon","Water","None","Water Absorb Hydration","Max Raid Battles",130,65,60,110,95,65
+"199","198","Jolteon","Electric","None","Volt Absorb Quick Feet","Max Raid Battles",65,65,60,110,95,130
+"200","199","Flareon","Fire","None","Flash Fire Guts","Max Raid Battles",65,130,60,95,110,65
+"201","200","Espeon","Psychic","None","Synchronize Magic Bounce","Max Raid Battles",65,65,60,130,95,110
+"202","201","Umbreon","Dark","None","Synchronize Inner Focus","Max Raid Battles",95,65,110,60,130,65
+"203","202","Leafeon","Grass","None","Leaf Guard Chlorophyll","Max Raid Battles",65,110,130,60,65,95
+"204","203","Glaceon","Ice","None","Snow Cloak Ice Body","Max Raid Battles",65,60,110,130,95,65
+"205","204","Sylveon","Fairy","None","Cute Charm Pixilate","Max Raid Battles",95,65,65,110,130,60
+"206","205","Applin","Grass","Dragon","Ripen Gluttony Bulletproof","Route 5Dusty Bowl, Giant's Mirror, Stony WildernessMax Raid BattlesTo learn how to catch Applin and evolve it into Flapple or Appletun, click here.",40,40,80,40,40,20
+"207","206","Flapple","Grass","Dragon","Ripen Gluttony Hustle","Max Raid BattlesTo learn how to evolve Applin into Flapple, click here.",70,110,80,95,60,70
+"208","207","Appletun","Grass","Dragon","Ripen Gluttony Thick Fat","Max Raid BattlesTo learn how to evolve Applin into Appletun, click here.",110,85,80,100,80,30
+"209","208","Espurr","Psychic","None","Keen Eye Infiltrator Own Tempo","Route 5Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",62,48,54,63,60,68
+"210","209","Meowstic","Psychic","None","Keen Eye Infiltrator Prankster","Route 7Dusty BowlMax Raid Battles",74,48,76,83,81,104
+"211","210","Swirlix","Fairy","None","Sweet Veil Unburden","Route 5Glimwood TangleGiant's Mirror, Stony WildernessMax Raid Battles",62,48,66,59,57,49
+"212","211","Slurpuff","Fairy","None","Sweet Veil Unburden","Max Raid Battles",82,80,86,85,75,72
+"213","212","Spritzee","Fairy","None","Healer Aroma Veil","Route 5Glimwood TangleGiant's Mirror, Stony WildernessMax Raid Battles",78,52,60,63,65,23
+"214","213","Aromatisse","Fairy","None","Healer Aroma Veil","Max Raid Battles",101,72,72,99,89,29
+"215","214","Dewpider","Water","Bug","Water Bubble Water Absorb","Route 5Motostoke Riverbank, Stony WildernessMax Raid Battles",38,40,52,40,72,27
+"216","215","Araquanid","Water","Bug","Water Bubble Water Absorb","Lake of OutrageMax Raid Battles",68,70,92,50,132,42
+"217","216","Wynaut","Psychic","None","Shadow Tag Telepathy","Max Raid Battles",95,23,48,23,48,23
+"218","217","Wobbuffet","Psychic","None","Shadow Tag Telepathy","Route 5Bridge Field, Dusty Bowl, Hammerlocke Hills, Lake of Outrage, Motostoke RiverbankMax Raid Battles",190,33,58,33,58,33
+"219","218","Galarian Farfetch’d","Fighting","None","Steadfast Scrappy","Route 5Giant's MirrorMax Raid Battles",52,95,55,58,62,55
+"220","219","Sirfetch’d","Fighting","None","Steadfast Scrappy","Max Raid BattlesSee How to Evolve Farfetch'd into Sirfetch'd",62,135,95,68,82,65
+"221","220","Chinchou","Water","Electric","Volt Absorb Illuminate Water Absorb","HulburyEast Lake Axewell, Giant's Mirror, West Lake AxewellMax Raid Battles",75,38,38,56,56,67
+"222","221","Lanturn","Water","Electric","Volt Absorb Illuminate Water Absorb","Bridge Field, Dusty Bowl, Lake of OutrageMax Raid Battles",125,58,58,76,76,67
+"223","222","Croagunk","Poison","Fighting","Anticipation Dry Skin Poison Touch","Motostoke OutskirtsGalar Mine No. 2Bridge Field, Dusty Bowl, Giant's Cap, Stony WildernessMax Raid Battles",48,61,40,61,40,50
+"224","223","Toxicroak","Poison","Fighting","Anticipation Dry Skin Poison Touch","Stony WildernessMax Raid Battles",83,106,65,86,65,85
+"225","224","Scraggy","Dark","Fighting","Shed Skin Moxie Intimidate","Motostoke OutskirtsGalar Mine No. 2Bridge Field, Dusty Bowl, Giant's Cap, Stony WildernessMax Raid Battles",50,75,70,35,70,48
+"226","225","Scrafty","Dark","Fighting","Shed Skin Moxie Intimidate","Stony WildernessMax Raid Battles",65,90,115,45,115,58
+"227","226","Galarian Stunfisk","Ground","Steel","Mimicry","Slumbering WealdGalar Mine No. 2Dusty Bowl, Lake of OutrageMax Raid Battles",109,81,99,66,84,32
+"228","227","Shuckle","Bug","Rock","Sturdy Gluttony Contrary","Galar Mine No. 2Dusty Bowl, Giant's Cap, Stony Wilderness, Watchtower RuinsMax Raid Battles",20,10,230,10,230,5
+"229","228","Barboach","Water","Ground","Oblivious Anticipation Hydration","Galar Mine No. 2MotostokeSlumbering WealdNorth Lake Miloch, South Lake Miloch, Stony WildernessMax Raid Battles",50,48,43,46,41,60
+"230","229","Whiscash","Water","Ground","Oblivious Anticipation Hydration","Slumbering WealdMax Raid Battles",110,78,73,76,71,60
+"231","230","Shellos","Water","None","Sticky Hold Storm Drain Sand Force","Galar Mine No. 2Bridge Field, Giant's Cap, Giant's Mirror, Motostoke Riverbank, Stony WildernessMax Raid Battles",76,48,48,57,62,34
+"232","231","Gastrodon","Water","Ground","Sticky Hold Storm Drain Sand Force","Route 9Galar Mine No. 2Max Raid Battles",111,83,68,92,82,39
+"233","232","Wimpod","Bug","Water","Wimp Out","Galar Mine No. 2Bridge Field, Giant's Mirror, Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",25,35,40,20,30,80
+"234","233","Golisopod","Bug","Water","Emergency Exit","Lake of OutrageMax Raid Battles",75,125,140,60,90,40
+"235","234","Binacle","Rock","Water","Tough Claws Sniper Pickpocket","Galar Mine No. 2Bridge Field, Motostoke RiverbankMax Raid Battles",42,52,67,39,56,50
+"236","235","Barbaracle","Rock","Water","Tough Claws Sniper Pickpocket","Route 9Dusty Bowl, Lake of OutrageMax Raid Battles",72,105,115,54,86,68
+"237","236","Galarian Corsola","Ghost","None","Weak Armor Cursed Body","Giant's MirrorMax Raid BattlesSee How to Catch Corsola for more details",60,55,100,65,100,30
+"238","237","Cursola","Ghost","None","Weak Armor Perish Body","Max Raid Battles",60,95,50,145,130,30
+"239","238","Impidimp","Dark","Fairy","Prankster Frisk Pickpocket","Glimwood TangleGiant's Mirror, Hammerlocke Hills, Motostoke Outskirts, Stony WildernessMax Raid Battles",45,45,30,55,40,50
+"240","239","Morgrem","Dark","Fairy","Prankster Frisk Pickpocket","Glimwood TangleMax Raid Battles",65,60,45,75,55,70
+"241","240","Grimmsnarl","Dark","Fairy","Prankster Frisk Pickpocket","Lake of OutrageMax Raid Battles",95,120,65,95,75,60
+"242","241","Hatenna","Psychic","None","Healer Anticipation Magic Bounce","Motostoke OutskirtsHammerlocke Hills, Stony WildernessMax Raid Battles",42,30,45,56,53,39
+"243","242","Hattrem","Psychic","None","Healer Anticipation Magic Bounce","Glimwood TangleDusty BowlMax Raid Battles",57,40,65,86,73,49
+"244","243","Hatterene","Psychic","Fairy","Healer Anticipation Magic Bounce","Lake of OutrageMax Raid Battles",57,90,95,136,103,29
+"245","244","Salandit","Poison","Fire","Corrosion Oblivious","Stony WildernessMax Raid BattlesMotostoke OutskirtsMotostoke Riverbank",48,44,40,71,40,77
+"246","245","Salazzle","Poison","Fire","Corrosion Oblivious","Max Raid BattlesEvolve from Salandit - Female Only!",68,64,60,111,60,117
+"247","246","Pawniard","Dark","Steel","Defiant Inner Focus Pressure","Route 8Motostoke OutskirtsGiant's Cap, Giant's Mirror, Motostoke Riverbank, Stony WildernessMax Raid Battles",45,85,70,40,40,60
+"248","247","Bisharp","Dark","Steel","Defiant Inner Focus Pressure","Lake of OutrageMax Raid Battles",65,125,100,60,70,70
+"249","248","Throh","Fighting","None","Guts Inner Focus Mold Breaker","Cichester (trading with the vender)Route 8Motostoke OutskirtsBridge Field, Giant's Mirror, Motostoke RiverbankMax Raid Battles",120,100,85,30,85,45
+"250","249","Sawk","Fighting","None","Sturdy Inner Focus Mold Breaker","Route 8Motostoke OutskirtsBridge Field, Giant's Mirror, Motostoke RiverbankMax Raid BattlesCichester (trading with the vender)",75,125,75,30,75,85
+"251","250","Koffing","Poison","None","Levitate Neutralizing Gas Stench","Motostoke OutskirtsDusty Bowl, Giant's Mirror, Motostoke RiverbankMax Raid Battles",40,65,95,60,45,35
+"252","251","Galarian Weezing","Poison","Fairy","Levitate Neutralizing Gas Misty Surge","Slumbering WealdLake of OutrageMax Raid Battles",65,90,120,85,70,60
+"253","252","Bonsly","Rock","None","Sturdy Rock Head Rattled","Bridge Field, Stony WildernessMax Raid Battles",50,80,95,10,45,10
+"254","253","Sudowoodo","Rock","None","Sturdy Rock Head Rattled","Motostoke OutskirtsBridge Field, Dusty Bowl, Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",70,100,115,30,65,30
+"255","254","Cleffa","Fairy","None","Cute Charm Magic Guard Friend Guard","Max Raid Battles",50,25,28,45,55,15
+"256","255","Clefairy","Fairy","None","Cute Charm Magic Guard Friend Guard","Giant's Cap, Motostoke RiverbankMax Raid Battles",70,45,48,60,65,35
+"257","256","Clefable","Fairy","None","Cute Charm Magic Guard Unaware","Max Raid Battles",95,70,73,95,90,60
+"258","257","Togepi","Fairy","None","Hustle Serene Grace Super Luck","Bridge FieldMax Raid Battles",35,20,65,40,65,20
+"259","258","Togetic","Fairy","Flying","Hustle Serene Grace Super Luck","Stony WildernessMax Raid Battles",55,40,85,80,105,40
+"260","259","Togekiss","Fairy","Flying","Hustle Serene Grace Super Luck","Max Raid Battles",85,50,95,120,115,80
+"261","260","Munchlax","Normal","None","Pickup Thick Fat Gluttony","Motostoke RiverbankMax Raid Battles",135,85,40,40,85,5
+"262","261","Snorlax","Normal","None","Immunity Thick Fat Gluttony","Max Raid Battles",160,110,65,65,110,30
+"263","262","Cottonee","Grass","Fairy","Prankster Infiltrator Chlorophyll","Stony WildernessMax Raid Battles",40,27,60,37,50,66
+"264","263","Whimsicott","Grass","Fairy","Prankster Infiltrator Chlorophyll","Max Raid Battles",60,67,85,77,75,116
+"265","264","Rhyhorn","Ground","Rock","Lightning Rod Rock Head Reckless","Route 8Bridge Field, Giant's Cap, Giant's Mirror, Motostoke Riverbank, Stony WildernessMax Raid Battles",80,85,95,30,30,25
+"266","265","Rhydon","Ground","Rock","Lightning Rod Rock Head Reckless","Route 10Dusty Bowl, Lake of OutrageMax Raid Battles",105,130,120,45,45,40
+"267","266","Rhyperior","Ground","Rock","Lightning Rod Solid Rock Reckless","Max Raid Battles",115,140,130,55,55,40
+"268","267","Gothita","Psychic","None","Frisk Competitive Shadow Tag","Giant's CapMax Raid Battles",45,30,50,55,65,45
+"269","268","Gothorita","Psychic","None","Frisk Competitive Shadow Tag","Dusty Bowl, Giant's CapMax Raid Battles",60,45,70,75,85,55
+"270","269","Gothitelle","Psychic","None","Frisk Competitive Shadow Tag","Lake of OutrageMax Raid Battles",70,55,95,95,110,65
+"271","270","Solosis","Psychic","None","Overcoat Magic Guard Regenerator","Giant's CapMax Raid Battles",45,30,40,105,50,20
+"272","271","Duosion","Psychic","None","Overcoat Magic Guard Regenerator","Dusty Bowl, Giant's CapMax Raid Battles",65,40,50,125,60,30
+"273","272","Reuniclus","Psychic","None","Overcoat Magic Guard Regenerator","Lake of OutrageMax Raid Battles",110,65,75,125,85,30
+"274","273","Karrablast","Bug","None","Swarm Shed Skin No Guard","Route 7Bridge Field, Giant's Cap, Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",50,75,45,40,45,60
+"275","274","Escavalier","Bug","Steel","Swarm Shell Armor Overcoat","Max Raid BattlesEvolve Karrablast",70,135,105,60,105,20
+"276","275","Shelmet","Bug","None","Hydration Shell Armor Overcoat","Route 7Bridge Field, Giant's Cap, Hammerlocke Hills, Motostoke RiverbankMax Raid Battles",50,40,85,40,65,25
+"277","276","Accelgor","Bug","None","Hydration Sticky Hold Unburden","Max Raid BattlesEvolve Shelmet",80,70,40,100,60,145
+"278","277","Elgyem","Psychic","None","Telepathy Synchronize Analytic","Bridge Field, Motostoke RiverbankMax Raid Battles",55,55,55,85,55,30
+"279","278","Beheeyem","Psychic","None","Telepathy Synchronize Analytic","Lake of Outrage",75,75,75,125,95,40
+"280","279","Cubchoo","Ice","None","Snow Cloak Slush Rush Rattled","Route 10Bridge Field, Dusty Bowl, Giant's Mirror, Hammerlocke Hills, Stony WildernessMax Raid Battles",55,70,40,60,40,40
+"281","280","Beartic","Ice","None","Snow Cloak Slush Rush Swift Swim","Route 10Max Raid Battles",95,130,80,70,80,50
+"282","281","Rufflet","Normal","Flying","Keen Eye Sheer Force Hustle","Route 8Bridge Field, Stony WildernessMax Raid Battles",70,83,50,37,50,60
+"283","282","Braviary","Normal","Flying","Keen Eye Sheer Force Defiant","Dusty Bowl, Lake of OutrageMax Raid Battles",100,123,75,57,75,80
+"284","283","Vullaby","Dark","Flying","Big Pecks Overcoat Weak Armor","Route 8Bridge Field, Stony WildernessMax Raid Battles",70,55,75,45,65,60
+"285","284","Mandibuzz","Dark","Flying","Big Pecks Overcoat Weak Armor","Dusty Bowl, Lake of OutrageMax Raid Battles",110,65,105,55,95,80
+"286","285","Skorupi","Poison","Bug","Battle Armor Sniper Keen Eye","Route 6Giant's Mirror, Motostoke RiverbankMax Raid Battles",40,50,90,30,55,65
+"287","286","Drapion","Poison","Dark","Battle Armor Sniper Keen Eye","Route 8Lake of OutrageMax Raid Battles",70,90,110,60,75,95
+"288","287","Litwick","Ghost","Fire","Flash Fire Flame Body Infiltrator","Motostoke GymBridge Field, Motostoke RiverbankMax Raid Battles",50,30,55,65,55,20
+"289","288","Lampent","Ghost","Fire","Flash Fire Flame Body Infiltrator","Lake of OutrageMax Raid Battles",60,40,60,95,60,55
+"290","289","Chandelure","Ghost","Fire","Flash Fire Flame Body Infiltrator","Max Raid Battles",60,55,90,145,90,80
+"291","290","Inkay","Dark","Psychic","Contrary Suction Cups Infiltrator","Route 7Route 9Bridge Field, Giant's Mirror, Hammerlocke HillsMax Raid Battles",53,54,53,37,46,45
+"292","291","Malamar","Dark","Psychic","Contrary Suction Cups Infiltrator","Max Raid BattlesSee How to Evolve Inkay",86,92,88,68,75,73
+"293","292","Sneasel","Dark","Ice","Inner Focus Keen Eye Pickpocket","Route 8Route 10Bridge Field, Dusty Bowl, Giant's Cap, Hammerlocke Hills, Motostoke Riverbank, Stony WildernessMax Raid Battles",55,95,55,35,75,115
+"294","293","Weavile","Dark","Ice","Pressure Pickpocket","Max Raid Battles",70,120,65,45,85,125
+"295","294","Sableye","Dark","Ghost","Keen Eye Stall Prankster","Dusty BowlMax Raid Battles",50,75,75,65,65,50
+"296","295","Mawile","Steel","Fairy","Hyper Cutter Intimidate Sheer Force","Bridge Field, Dusty BowlMax Raid Battles",50,85,85,55,55,50
+"297","296","Maractus","Grass","None","Water Absorb Chlorophyll Storm Drain","Route 6Bridge Field, Hammerlocke Hills, Stony WildernessMax Raid Battles",75,86,67,106,67,60
+"298","297","Sigilyph","Psychic","Flying","Wonder Skin  Magic Guard Tinted Lens","Lake of Outrage, Motostoke Riverbank, Stony WildernessMax Raid Battles",72,58,80,103,80,97
+"299","298","Riolu","Fighting","None","Steadfast Inner Focus Prankster","Giant's CapMax Raid Battles",40,70,40,35,40,60
+"300","299","Lucario","Fighting","Steel","Steadfast Inner Focus Justified","Max Raid BattlesRandom Strong SpawnSee How to Evolve Riolu",70,110,70,115,70,90
+"301","300","Torkoal","Fire","None","White Smoke Drought Shell Armor","Route 6Giant's Cap, Giant's Mirror, Motostoke RiverbankMax Raid Battles",70,85,140,85,70,20
+"302","301","Mimikyu","Ghost","Fairy","Disguise","Giant's MirrorMax Raid Battles",55,90,80,50,105,96
+"303","302","Cufant","Steel","None","Sheer Force Heavy Metal","Bridge FieldMax Raid Battles",72,80,49,40,49,40
+"304","303","Copperajah","Steel","None","Sheer Force Heavy Metal","Lake of OutrageMax Raid Battles",122,130,69,80,69,30
+"305","304","Qwilfish","Water","Poison","Poison Point Swift Swim Intimidate","Route 9Bridge Field, Dusty Bowl, Lake of OutrageMax Raid Battles",65,95,85,55,55,85
+"306","305","Frillish","Water","Ghost","Water Absorb Cursed Body Damp","Bridge Field, East Lake Axewell, Giant's Mirror, North Lake Miloch, West Lake AxewellMax Raid Battles",55,40,50,65,85,40
+"307","306","Jellicent","Water","Ghost","Water Absorb Cursed Body Damp","Route 9Lake of OutrageMax Raid Battles",100,60,70,85,105,60
+"308","307","Mareanie","Poison","Water","Merciless Limber Regenerator","Route 9Giant's Mirror, Motostoke RiverbankMax Raid Battles",50,53,62,43,52,45
+"309","308","Toxapex","Poison","Water","Merciless Limber Regenerator","Route 9Max Raid Battles",50,63,152,53,142,35
+"310","309","Cramorant","Flying","Water","Gulp Missile","Route 9Bridge Field, Lake of Outrage, Stony WildernessMax Raid Battles",70,85,55,85,95,85
+"311","310","Toxel","Electric","Poison","Rattled Static Klutz","Route 7Bridge Field, Giant's Cap, Hammerlocke Hills, Motostoke Riverbank, Stony WildernessMax Raid Battles",40,38,35,54,35,40
+"312","311","Toxtricity","Electric","Poison","Punk Rock Plus Technician","Max Raid Battles",75,98,70,114,70,75
+"313","312","Silicobra","Ground","None","Sand Spit Shed Skin Sand Veil","Route 6Max Raid Battles",52,57,75,35,50,46
+"314","313","Sandaconda","Ground","None","Sand Spit Shed Skin Sand Veil","Route 8Lake of OutrageMax Raid Battles",72,107,125,65,70,71
+"315","314","Hippopotas","Ground","None","Sand Stream Sand Force","Route 6Dusty BowlMax Raid Battles",68,72,78,38,42,32
+"316","315","Hippowdon","Ground","None","Sand Stream Sand Force","Route 8Giant's Mirror, Lake of OutrageMax Raid Battles",108,112,118,68,72,47
+"317","316","Durant","Bug","Steel","Swarm Hustle Truant","Route 6Giant's Mirror, Lake of OutrageMax Raid Battles",58,109,112,48,48,109
+"318","317","Heatmor","Fire","None","Gluttony Flash Fire White Smoke","Route 6Giant's Mirror, Lake of OutrageMax Raid Battles",85,97,66,105,66,65
+"319","318","Helioptile","Electric","Normal","Dry Skin Sand Veil Solar Power","Route 6Giant's MirrorMax Raid Battles",44,38,33,61,43,70
+"320","319","Heliolisk","Electric","Normal","Dry Skin Sand Veil Solar Power","Max Raid Battles",62,55,52,109,94,109
+"321","320","Hawlucha","Fighting","Flying","Limber Unburden Mold Breaker","Route 6Hammerlocke HillsMax Raid Battles",78,92,75,74,63,118
+"322","321","Trapinch","Ground","None","Hyper Cutter Arena Trap Sheer Force","Route 6Max Raid BattlesHammerlocke Hills",45,100,45,45,45,10
+"323","322","Vibrava","Ground","Dragon","Levitate","Max Raid Battles",50,70,50,50,50,70
+"324","323","Flygon","Ground","Dragon","Levitate","Lake of OutrageMax Raid Battles",80,100,80,80,80,100
+"325","324","Axew","Dragon","None","Rivalry Mold Breaker Unnerve","Route 6Axew's EyeMax Raid BattlesHammerlocke Hills",46,87,60,30,40,57
+"326","325","Fraxure","Dragon","None","Rivalry Mold Breaker Unnerve","Max Raid Battles",66,117,70,40,50,67
+"327","326","Haxorus","Dragon","None","Rivalry Mold Breaker Unnerve","Lake of OutrageMax Raid Battles",76,147,90,60,70,97
+"328","327","Galarian Yamask","Ground","Ghost","Wandering Spirit","Route 6Max Raid Battles",38,55,85,30,65,30
+"329","327","Unovan Yamask","Ghost","None","Wandering Spirit","NPC Trade",38,55,85,30,65,30
+"330","328","Runerigus","Ground","Ghost","Wandering Spirit","Max Raid BattlesEvolve Yamask (See How to Evolve Yamask )",58,95,145,50,105,30
+"331","329","Cofagrigus","Ghost","None","Mummy","Evolve Unovan Yamask",58,50,145,95,105,30
+"332","330","Honedge","Steel","Ghost","No Guard","Hammerlocke HillsMax Raid Battles",45,80,100,35,37,28
+"333","331","Doublade","Steel","Ghost","No Guard","Lake of OutrageMax Raid Battles",59,110,150,45,49,35
+"334","332","Aegislash","Steel","Ghost","Stance Change","Max Raid Battles",60,50,140,50,140,60
+"335","333","Galarian Ponyta","Psychic","None","Run Away Pastel Veil Anticipation","Glimwood TangleMax Raid Battles",50,85,55,65,65,90
+"336","334","Galarian Rapidash","Psychic","Fairy","Run Away Pastel Veil Anticipation","Max Raid Battles",65,100,70,80,80,105
+"337","335","Sinistea","Ghost","None","Weak Armor Cursed Body","Glimwood TangleMax Raid Battles",40,45,45,74,54,50
+"338","336","Polteageist","Ghost","None","Weak Armor Cursed Body","Max Raid Battles",60,65,65,134,114,70
+"339","337","Indeedee","Psychic","Normal","Inner Focus Synchronize Psychic Surge","(Male) (Female)Glimwood TangleLake of OutrageMax Raid Battles",60,65,55,105,95,95
+"340","338","Phantump","Ghost","Grass","Natural Cure Frisk Harvest","Glimwood TangleMax Raid Battles",43,70,48,50,60,38
+"341","339","Trevenant","Ghost","Grass","Natural Cure Frisk Harvest","Max Raid Battles",85,110,76,65,82,56
+"342","340","Morelull","Grass","Fairy","Illuminate Effect Spore Rain Dish","Giant's Mirror, Hammerlocke HillsMax Raid Battles",40,35,55,65,75,15
+"343","341","Shiinotic","Grass","Fairy","Illuminate Effect Spore Rain Dish","Glimwood TangleMax Raid Battles",60,45,80,90,100,30
+"344","342","Oranguru","Normal","Psychic","Inner Focus Telepathy Symbiosis","Glimwood TangleMax Raid Battles",90,60,80,90,110,60
+"345","343","Passimian","Fighting","None","Receiver Defiant","Glimwood TangleMax Raid Battles",100,120,90,40,60,80
+"346","344","Morepeko","Electric","Dark","Hunger Switch","Route 7Route 9Lake of OutrageMax Raid Battles",58,95,58,70,58,97
+"347","345","Falinks","Fighting","None","Battle Armor Defiant","Route 8Lake of OutrageMax Raid Battles",65,100,100,70,60,75
+"348","346","Drampa","Normal","Dragon","Berserk Sap Sipper Cloud Nine","Lake of OutrageMax Raid Battles",78,60,85,135,91,36
+"349","347","Turtonator","Fire","Dragon","Shell Armor","Lake of OutrageMax Raid Battles",60,78,135,91,85,36
+"350","348","Togedemaru","Electric","Steel","Iron Barbs Lightning Rod Sturdy","Route 8Lake of OutrageMax Raid Battles",65,98,63,40,73,96
+"351","349","Snom","Ice","Bug","Shield Dust Ice Scales","Route 8Route 10Lake of OutrageMax Raid Battles",30,25,35,45,30,20
+"352","350","Frosmoth","Ice","Bug","Shield Dust Ice Scales","Max Raid Battles",70,65,60,125,90,65
+"353","351","Clobbopus","Fighting","None","Limber Technician","Route 9Max Raid Battles",50,68,60,50,50,32
+"354","352","Grapploct","Fighting","None","Limber Technician","Route 9Max Raid Battles",80,118,90,70,80,42
+"355","353","Pinchurchin","Electric","None","Lightning Rod Electric Surge","Route 9Max Raid Battles",48,101,95,91,85,15
+"356","354","Mantyke","Water","Flying","Swift Swim Water Absorb Water Veil","Route 9Lake of Outrage, Motostoke RiverbankMax Raid Battles",45,20,50,60,120,50
+"357","355","Mantine","Water","Flying","Swift Swim Water Absorb Water Veil","Route 9Lake of OutrageMax Raid Battles",85,40,70,80,140,70
+"358","356","Wailmer","Water","None","Water Veil Oblivious Pressure","Route 9Max Raid Battles",130,70,35,70,35,60
+"359","357","Wailord","Water","None","Water Veil Oblivious Pressure","Route 9Max Raid Battles",170,90,45,90,45,60
+"360","358","Bergmite","Ice","None","Own Tempo Ice Body Sturdy","Route 9Lake of OutrageMax Raid Battles",55,69,85,32,35,28
+"361","359","Avalugg","Ice","None","Own Tempo Ice Body Sturdy","Max Raid Battles",95,117,184,44,46,28
+"362","360","Dhelmise","Ghost","Grass","Steelworker","Route 9Max Raid Battles",70,131,100,86,90,40
+"363","361","Lapras","Water","Ice","Water Absorb Shell Armor Hydration","Route 9Max Raid Battles",130,85,80,85,95,60
+"364","362","Lunatone","Rock","Psychic","Levitate","Route 8Giant's CapMax Raid Battles",90,55,65,95,85,70
+"365","363","Solrock","Rock","Psychic","Levitate","Route 8Giant's CapMax Raid Battles",90,95,85,55,65,70
+"366","364","Mime Jr.","Psychic","Fairy","Soundproof Filter Technician","Max Raid Battles",20,25,45,70,90,60
+"367","365","Galarian Mr. Mime","Ice","Psychic","Vital Spirit Screen Cleaner Ice Body","Route 10Lake of OutrageMax Raid Battles Kantonian Mr. Mime can be obtained in Spikemuth by trading.",50,65,65,90,90,100
+"368","366","Mr. Rime","Ice","Psychic","Tangled Feet Screen Cleaner Ice Body","Max Raid Battles",80,85,75,110,100,70
+"369","367","Galarian Darumaka","Ice","None","Hustle Inner Focus","Route 8Route 10Max Raid Battles",70,90,45,15,45,50
+"370","368","Galarian Darmanitan","Ice","None","Gorilla Tactics Zen Mode","Max Raid Battles",105,140,55,30,55,95
+"371","369","Stonejourner","Rock","None","Power Spot","Route 10Lake of OutrageMax Raid Battles",100,125,135,20,20,70
+"372","370","Eiscue","Ice","None","Ice Face","Route 10Lake of OutrageMax Raid Battles",75,80,110,65,90,50
+"373","371","Duraludon","Steel","Dragon","Light Metal Heavy Metal Stalwart","Route 10Lake of OutrageMax Raid Battles",70,95,115,120,50,85
+"374","372","Rotom","Electric","Ghost","Levitate","Lake of OutrageMax Raid Battles",50,50,77,95,77,91
+"375","373","Ditto","Normal","None","Limber Imposter","Lake of OutrageMax Raid Battles",48,48,48,48,48,48
+"376","374","Dracozolt","Electric","Dragon","Volt Absorb Hustle Sand Rush","See How to Get Fossils",90,100,90,80,70,75
+"377","375","Arctozolt","Electric","Ice","Volt Absorb Static Slush Rush","See How to Get Fossils",90,100,90,90,80,55
+"378","376","Dracovish","Water","Dragon","Water Absorb Strong Jaw Sand Rush","See How to Get Fossils",90,90,100,70,80,75
+"379","377","Arctovish","Water","Ice","Water Absorb Ice Body Slush Rush","See How to Get Fossils",90,90,100,80,90,55
+"380","378","Charmander","Fire","None","Blaze Solar Power","Max Raid BattlesSee How to Get Charmander",39,52,43,60,50,65
+"381","379","Charmeleon","Fire","None","Blaze Solar Power","Max Raid Battles",58,64,58,80,65,80
+"382","380","Charizard","Fire","Flying","Blaze Solar Power","Max Raid Battles",78,84,78,109,85,100
+"383","381","Type: Null","Normal","None","Battle Armor","Battle Tower (Gift)",95,95,95,95,95,59
+"384","382","Silvally","Normal","Ground","RKS System","Evolve Type: Null",95,95,95,95,95,95
+"385","383","Larvitar","Rock","Ground","Guts Sand Veil","Lake of OutrageMax Raid Battles",50,64,50,45,50,41
+"386","384","Pupitar","Rock","Ground","Shed Skin","Lake of OutrageMax Raid Battles",70,84,70,65,70,51
+"387","385","Tyranitar","Rock","Dark","Sand Stream Unnerve","Max Raid Battles",100,134,110,95,100,61
+"388","386","Deino","Dark","Dragon","Hustle","Lake of OutrageMax Raid Battles",52,65,50,45,50,38
+"389","387","Zweilous","Dark","Dragon","Hustle","Lake of OutrageMax Raid Battles",72,85,70,65,70,58
+"390","388","Hydreigon","Dark","Dragon","Levitate","Max Raid Battles",92,105,90,125,90,98
+"391","389","Goomy","Dragon","None","Sap Sipper Hydration Gooey","Lake of OutrageMax Raid Battles",45,50,35,55,75,40
+"392","390","Sliggoo","Dragon","None","Sap Sipper Hydration Gooey","Lake of OutrageMax Raid Battles",68,75,53,83,113,60
+"393","391","Goodra","Dragon","None","Sap Sipper Hydration Gooey","Max Raid Battles",90,100,70,110,150,80
+"394","392","Jangmo-o","Dragon","None","Bulletproof Soundproof Overcoat","Lake of OutrageMax Raid Battles",45,55,65,45,45,45
+"395","393","Hakamo-o","Dragon","Fighting","Bulletproof Soundproof Overcoat","Lake of OutrageMax Raid Battles",55,75,90,65,70,65
+"396","394","Kommo-o","Dragon","Fighting","Bulletproof Soundproof Overcoat","Max Raid Battles",75,110,125,100,105,85
+"397","395","Dreepy","Dragon","Ghost","Clear Body Infiltrator Cursed Body","Lake of Outrage Max Raid Battles",28,60,30,40,30,82
+"398","396","Drakloak","Dragon","Ghost","Clear Body Infiltrator Cursed Body","Lake of Outrage Max Raid Battles",68,80,50,60,50,102
+"399","397","Dragapult","Dragon","Ghost","Clear Body Infiltrator Cursed Body","Max Raid Battles",88,120,75,100,75,142
+"400","398","Zacian","Fairy","None","Intrepid Sword","Post Game Story",92,130,115,80,115,138
+"401","399","Zamazenta","Fighting","None","Dauntless Shield","Post Game Story",92,130,115,80,115,138
+"402","400","Eternatus","Poison","Dragon","Pressure","Story - Energy Plant",140,85,95,145,95,130

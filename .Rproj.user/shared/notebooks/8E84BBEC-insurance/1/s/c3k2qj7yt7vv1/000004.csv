@@ -1,0 +1,5 @@
+"0","library(OptimalCutpoints)"
+"0","boost_preds <- predict(bst_initial, dtrain_ins) # Create predictions for xgboost model(dtrain)"
+"2","Error in predict(bst_initial, dtrain_ins) : 
+  object 'bst_initial' not found
+"

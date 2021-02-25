@@ -1,0 +1,8 @@
+"0","tm::removeWords(documents, words = c(""blood"", stopwords(""en"")))"
+"1","[1]"
+"1"," ""I like  chew.""       "
+"1"," ""I  stompin  chewing."""
+"1"," ""Chewing    .""        "
+"1"," ""I   chewer""          "
+"1","
+"

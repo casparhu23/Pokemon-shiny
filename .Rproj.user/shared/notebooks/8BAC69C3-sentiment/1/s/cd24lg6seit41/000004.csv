@@ -1,0 +1,9 @@
+"0","microbenchmark::microbenchmark(stem_strings(cleanLyrics), 
+                               lemmatize_strings(cleanLyrics))
+"
+"1","Unit: "
+"1",""
+"1","microseconds"
+"1",""
+"1","
+"

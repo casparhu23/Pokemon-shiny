@@ -1,0 +1,366 @@
+---
+title: "tsf_week2"
+author: "Caspar Hu"
+date: "2/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# WEEK 2 R CODES
+```{r}
+install.packages("fpp")
+require(fpp)
+```
+
+## Topic 1-Video 1: Simple Forecasting Methods
+ausbeer 
+Source: fpp package
+Description:Total quarterly beer production in Australia (in megalitres) from 1956:Q1 to 2008:Q3.
+```{r}
+plot(ausbeer)
+beer1 <- window(ausbeer, start=1995, end=2003.99)#We use data from 1995-2003 as training data
+plot(beer1,xlab="Year",
+     ylab="megaliters", 
+     main="Australian quarterly beer production")# set title
+
+plot(meanf(beer1, h=20), plot.conf=FALSE) #Forecasts produced by Average of Past Values method
+lines(naive(beer1, h=20)$mean, col="red") #Forecasts produced by Naive method
+lines(snaive(beer1, h=20)$mean, col="green") #Forcasts produced by Seasonal naive method
+lines(rwf(beer1, h=20, drift=TRUE)$mean, col="pink") #Forecasts produced by Drift method
+
+lines(window(ausbeer,start=2004)) #Actual data, color is black
+```
+
+## Topic 2-Video 2: Exponential Smoothing Methods
+
+Simple Expoential Smoothing (SES)
+ Oil data:
+oil
+Source: fpp package
+Description: Annual oil production (millions of tonnes), Saudi Arabia, 1965-2010
+
+```{r}
+plot(oil)
+fit <- ses(oil,  h=5)
+plot(fit)
+summary(fit)
+```
+
+## Holt's linear trend versus Holt's damped method versus SES
+ausair
+Source: fpp package
+Description: Total annual air passengers including domestic and international aircraft passengers of air carriers registered in Australia. 1970-2009
+```{r}
+library(fpp)
+plot(ausair)
+air <- window(ausair, end=2004) #use data from 1970-2004 as training data
+
+fit1 <- ses(air, h=50)  #Simple Exponential Smoothing for 50-year forecasts
+fit2 <- holt(air, h=50) #Holt's linear trend for 50-year forecasts
+fit3 <- holt(air, damped=TRUE, h=50) #Holt's Damped Trend for 50-year forecasts
+
+plot(fit1) #Simple Exponential Smoothing for 50-year forecasts
+plot(fit2) #Holt's linear trend for 50-year forecasts
+plot(fit3) #Holt's Damped Trend for 50-year forecasts
+lines(fit1$mean, col="green", lwd=2)
+lines(fit2$mean, col="red", lwd=2)
+lines(window(ausair, start=2005), lwd=2)
+legend("topleft", lty=1, col=c("green","red","blue"),
+       legend=c("SES","Holt","Damped"))
+
+accuracy(fit1, ausair)
+accuracy(fit2, ausair)
+accuracy(fit3, ausair) #Damped Trend performs best in this case # compare MAPE
+```
+## Holt-Winters'seasonal methods
+austourists
+Source: fpp package
+Description: Quarterly visitor nights spent by international tourists to Australia. 1999-2010
+
+```{r}
+plot(austourists)
+vis <- window(austourists, end=2008.999999) #training data  # use 2008.999999 the gap closed
+vis2 <- window(austourists, start=2009)# Test data
+lines(vis, col="red", lwd=2)
+lines(vis2, col="blue", lwd=2)
+```
+```{r}
+plot(austourists)
+vis <- window(austourists, end=2008) #training data # gap was not closed fully
+vis2 <- window(austourists, start=2009)# Test data
+lines(vis, col="red", lwd=2)
+lines(vis2, col="blue", lwd=2)
+```
+
+```{r}
+fit1 <- hw(vis) #additive Holt-Winters method
+fit2 <- hw(vis, seasonal="multiplicative") #multiplicative Holt-Winters method
+fit3 <- hw(vis, damped=TRUE) #additive Holt-Winter method with damped trend 
+fit4 <- hw(vis, seasonal="multiplicative", damped=TRUE) #multiplicative Holt-Winter method with damped trend 
+
+
+plot(fit1, ylim=c(20,60))
+lines(fit2$mean, col=2, lwd=2)
+lines(fit3$mean, col=3, lwd=2)
+lines(fit4$mean, col=5, lwd=2)
+lines(vis2, lwd=2)
+```
+```{r}
+#All of the forecasts are so close. It's hard to distinguish each method's forecasts.
+#Let's zoom in and take a much closer look at the forecasts
+plot(fit1, ylim=c(30,60), include=8) # blue #additive Holt-Winters method (for stable seasonal)
+lines(fit2$mean, col=2, lwd=2) # red #multiplicative Holt-Winters method (for more fluctuated seasona)
+lines(fit3$mean, col=3, lwd=2) # green #additive Holt-Winter method with damped trend  
+lines(fit4$mean, col=5, lwd=2) # cyan #multiplicative Holt-Winter method with damped trend 
+lines(vis2, lwd=2) # black
+legend("bottomleft", lty=1, col=c("blue","red","green","cyan"),
+       legend=c("HW","HW-M","HW-Damped", "HW-M-Damped"))
+
+accuracy(fit1, vis2) # first is forecast values, the second is real data  
+accuracy(fit2, vis2) 
+accuracy(fit3, vis2)
+accuracy(fit4, vis2)
+
+# based on the characteristics, we will use multiplicative Holt-Winters, as this data has fluctuations with time goes by   
+```
+
+```{r}
+plot(fit2$model) #Decompose each component from fit2
+plot(fit2) #Plot the forecast of multiplicative Holt-Winters
+```
+
+```{r}
+#ETS Models for vis
+fit5=ets(vis) #Try EST() model, let ETS handle 
+plot(forecast(fit5)) #Plot the forecast and compare to multiplicative Holt-Winters (HW)
+lines(fit2$mean, col=2, lwd=2) # red
+lines(vis2, lwd=2) # black
+#visually multiplicative HW performs better. Let's take a look at the forecast accuracy anyway.
+accuracy(fit2, vis2) #multiplicative HW performs better
+accuracy(forecast(fit5), vis2)
+
+# ETS outperformed than fit 2
+fc5=forecast(fit5)
+
+# fc5$mean  means future value , fitted means train value   
+
+accuracy(fc5$mean, # forcast value
+         vis2)  # test data set 
+accuracy(fc5$fitted, # actual data 
+         vis) # train data set
+
+# the following two get same results 
+accuracy(fc5, # ETS 
+         austourists) 
+accuracy(fc5, # ETS 
+         vis2) 
+```
+## Topic 3-Video3: ETS models
+dj Source: fpp package
+Description: Dow-Jones index on 251 trading days ending 26 Aug 1994
+```{r}
+plot(dj)
+fit <- ets(dj)
+fcast1 <-forecast(fit, h=20)
+summary(fit)
+plot(fit)
+accuracy(fit)
+plot(forecast(fit,level=c(50,80,95)))
+plot(forecast(fit,fan =TRUE))
+```
+## austourists
+Source: fpp package
+Description: Quarterly visitor nights spent by international tourists to Australia. 1999-2010
+```{r}
+plot(austourists)
+fit <- ets(austourists)
+fcast1 <-forecast(fit, h=20)
+summary(fit)
+plot(fit)
+accuracy(fit)
+
+accuracy(fcast1$fitted,austourists)
+
+plot(forecast(fit,level=c(50,80,95)))
+plot(forecast(fit,fan =TRUE))
+
+```
+M : MULTI ERRORS /
+A:  ADD TREND / D : DAMPED TREND / N NO TREND 
+N: NO SEAONALITY  
+
+## Topic 4-Video 4: Evaluatiing Forecast Accuracy
+Actually, we have been evaluating forecast accuracy in previous examples using 'accuracy' function. 
+But let's look at more example here
+ausbeer Source: fpp package
+Description:Total quarterly beer production in Australia (in megalitres) from 1956:Q1 to 2008:Q3.
+```{r}
+#Compare forecast accuracy
+plot(ausbeer)
+beer3 <- window(ausbeer,start=1992, end=c(2005,4))
+beer4 <- window(ausbeer, start=2006)
+plot(beer3)
+
+fc1 <- meanf(beer3, h=12) #average of past values
+fc2 <- naive(beer3, h=12) #naive method
+fc3 <- snaive(beer3, h=12)#seasonal naive method
+```
+
+```{r}
+#Try ETS
+fit4<-ets(beer3) #ETS() model
+
+#fit5<-ets(beer3, model='AAA', damped=FALSE) #Try ETS(A,A,A) model
+
+summary(fit4)
+#summary(fit5)
+fc4<-forecast(fit4,h=12) # ETS method values
+#fc5<-forecast(fit5,h=12) #Try forecast ETS(A,A,A)
+```
+
+```{r}
+plot(fc1,xlab="Year",ylab="megaliters",main="Forecasts for quarterly beer production") #average of past values
+lines(fc2$mean, col="red")  #naive method
+lines(fc3$mean, col="green") #seasonal naive method
+lines(fc4$mean,col="pink") #ETS(M,N,M) model
+#lines(fc5$mean,col="purple") #Plot EST(A,A,A) out
+lines(beer4)
+legend("topleft", lty=1, col=c("green","red","blue","pink","black"),
+       legend=c("Seasonal naive","Naive","Average","ETS","Actual"))
+#Visually, ETS() model and seasonal naive method perform better. 
+#Let's look at forecast accuracy to see if we can find out which one is the best among the four.
+```
+
+```{r}
+accuracy(fc1, beer4)   # if we do accuracy(fc1$mean, beer4)
+accuracy(fc2, beer4)
+accuracy(fc3, beer4)
+accuracy(fc4, beer4)# ETS() model generated in fit4 performs better then all of the above forecasting models.
+#accuracy(fc5, beer4) #If compute the forecast accuracy of ETS(A,A,A), it actually outperfoms ETS(M,N,M) from fit4
+```
+
+## Practice problems
+```{r}
+#ibmclose
+plot(ibmclose)
+head(ibmclose,10)
+```
+
+```{r}
+ibm1 <- window(ibmclose, end=300)   # train data start from 1:300 samples
+ibm2 <- window(ibmclose, start=301) # test data start from 301:369 samples
+h <- length(ibm2) # length of test data set
+h
+```
+```{r}
+f1 <- meanf(ibm1, h=h) #average of past values method # h=h we use test data length to forecast
+f2 <- rwf(ibm1, h=h) #naive method
+f3 <- rwf(ibm1, drift=TRUE, h=h) #drift method
+```
+
+```{r}
+accuracy(f1, # model
+         ibm2) # test data 
+accuracy(f2,ibm2)
+accuracy(f3,ibm2)
+
+accuracy(f1$mean, # forecast values
+         ibm2) # test data 
+accuracy(f2$mean,ibm2)
+accuracy(f3$mean,ibm2) # f3 (Drift) does best due to lowest RMSE, MAE, MAPE
+```
+
+```{r}
+plot(f1)   # average past value
+plot(f2)   # naive - the last point 
+
+plot(f3)   # drift method
+lines(ibm2) # actual(test) data
+```
+```{r}
+res <- residuals(f3) # get residulas from f3
+length(res) 
+head(res)
+sum(is.na(res))  #check to see if there is any other NAs
+which(is.na(res))  #location of NAs
+res = res[-1] #remove NA
+plot(res)
+Acf(res)  # we still see some of data are not in the range that'why it is not a white noise.
+# Ideally, we need a white noise
+hist(res, breaks="FD")
+```
+
+```{r}
+jarque.bera.test(res) #p-value is small -> not normal
+
+# Residuals look relatively uncorrelated, but the distribution is not normal (tails too long)
+
+# MORE EXPLORATION
+#help()
+res1 <- residuals(f1)
+res2 <- residuals(f2)
+head(res1)
+head(res2)
+res2= res2[-1]
+Acf(res1)
+Acf(res2)
+jarque.bera.test(res1)
+jarque.bera.test(res2)
+```
+
+
+## Practice problems 2 
+last two year of data Seasonal data, with increasing trend, and increasing seasonal fluctuations
+Peak in December, with smaller peak in July. Lowest numbers of visitors in May.
+Each month has had similar increases over time
+Seasonality looks stable. Trend relatively flat in recent years.
+Big negative outliers in 2003
+
+```{r}
+library(fpp)
+plot(visitors)
+tail(visitors)
+visitors_training=window(visitors, end=c(2003,4))
+visitors_test=window(visitors,start=c(2003,5)) 
+```
+
+```{r}
+fc1 <- hw(visitors_training,seasonal="mult")
+plot(fc1)
+# Multiplicative seasonality because of the increasing size of the fluctuations
+# and increasing variation with the trend.
+# Seasonality looks like it behaves proportionally, therefore multiplicatively.
+
+fc2 <- hw(visitors_training,seasonal="mult",damped=TRUE)
+fc3 <- hw(visitors_training,seasonal="additive")
+fc4 <- hw(visitors_training,seasonal="additive",damped=TRUE)
+```
+```{r}
+plot(fc1)
+lines(fc2$mean,col=2)
+lines(fc3$mean,col=3)
+lines(fc4$mean,col=4)
+lines(visitors_test,col='black')
+```
+```{r}
+accuracy(fc1$mean,visitors_test)
+accuracy(fc2$mean,visitors_test)
+accuracy(fc3$mean,visitors_test) # Additive seasonality (fc3) does best among these models.
+accuracy(fc4$mean,visitors_test)
+```
+
+```{r}
+res3 <- residuals(fc3)
+Acf(res3)  # not white noise, cuz there are some lines out of the bounds
+Box.test(res3, lag=24, fitdf=length(fc3$model$par))
+# Some problems, but not too bad.
+jarque.bera.test(res3) #  not normal due to low p value
+```
+
+```{r}
+window(ausbeer, start=1995)
+subset(ausbeer, start=length(ausbeer)-4*5) # extracts last 5 years of observations one year 4 quarters
+```
+

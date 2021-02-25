@@ -1,0 +1,3 @@
+"0","extractedTerms <- extract_sentiment_terms(statement, polarity_dt = lexicon::hash_sentiment_jockers)"
+"0",""
+"0","attributes(extractedTerms)$counts"

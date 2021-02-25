@@ -1,0 +1,8 @@
+"0","train$Vehicle_Age <-  fct_relevel(train$Vehicle_Age,""< 1 Year"",""1-2 Year"",""> 2 Years"") #reorder level"
+"0","levels(train$Vehicle_Age) #check the level again"
+"1","[1]"
+"1"," ""< 1 Year"" "
+"1"," ""1-2 Year"" "
+"1"," ""> 2 Years"""
+"1","
+"

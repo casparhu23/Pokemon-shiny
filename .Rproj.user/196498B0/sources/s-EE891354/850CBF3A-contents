@@ -1,0 +1,121 @@
+---
+title: "image"
+author: "Caspar Hu"
+date: "2/13/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(rvest)
+library(magrittr)
+
+
+link_image <- "https://www.serebii.net/swordshield/galarpokedex.shtml"
+
+image <- read_html(link_image)%>%
+  html_nodes("a[href*='pokedex'] img.stdsprite") %>%
+  html_attr("src")
+
+
+imageFinder <- lapply(image, function(x){
+  tf <- grepl("pokemon", x)  # names refer to the names of the table
+})
+
+image_list_half <- image[unlist(imageFinder)]
+
+#swordshield/pokemon/small/810.png
+
+image_list<- paste("https://www.serebii.net",
+                image_list_half, sep="")
+
+pokemon_with_picture <- pokemon_list[(pokemon_list$X!=183) & (pokemon_list$X!=329),]
+
+pokemon_with_picture$image <- image_list
+```
+
+```{r}
+
+data_4 <- pokemon_list[pokemon_list$pokemon_name=='Grookey',]
+        #data_4 <- data_4[order(data_4$pokemon_name)]
+        
+        data_4 <- data_4 %>%
+            select(3,8:13)
+        rownames(data_4) <- data_4$pokemon_name
+        data_4 <- data_4[,-1]
+```
+
+```{r}
+
+
+```
+
+```{r}
+link_image <- "https://www.serebii.net/swordshield/galarpokedex.shtml"
+        
+        image <- read_html(link_image)%>%
+            html_nodes("a[href*='pokedex'] img.stdsprite") %>%
+            html_attr("src")
+        
+        
+        imageFinder <- lapply(image, function(x){
+            tf <- grepl("pokemon", x)  # names refer to the names of the table
+        })
+        
+        image_list_half <- image[unlist(imageFinder)]
+        
+        #swordshield/pokemon/small/810.png
+        
+        image_list<- paste("https://www.serebii.net",
+                           image_list_half, sep="")
+        
+        pokemon_with_picture <- pokemon_list[(pokemon_list$X!=183) & (pokemon_list$X!=329),]
+        
+        pokemon_with_picture$image <- image_list
+        
+        pokemon_with_picture <- pokemon_with_picture[order(pokemon_with_picture$pokemon_name),]
+        
+        pokemon_with_picture%>%
+          mutate(image=str_replace_all(image,"/small",""))
+        
+```
+```{r}
+pokemon_list[,2:13]
+```
+```{r}
+
+        data_4 <- pokemon_with_picture[pokemon_with_picture$pokemon_name=="Ditto",]
+        
+        data_4 <- data_4 %>%
+            select(3,8:13)
+        rownames(data_4) <- data_4$pokemon_name
+        data_4 <- data_4[,-1]
+        
+        max_min <- data.frame(
+            hp = c(250, 0), attack = c(250, 0), defence = c(250, 0),
+            sp_attack = c(250, 0), sp_defence = c(250, 0), speed = c(250, 0)
+        )
+        rownames(max_min) <- c("Max", "Min")
+        data_5 <- rbind(max_min,data_4)
+        
+        
+```
+
+```{r}
+ggplot(data,aes(x=score, y=stats_type,fill=stats_type)) +
+            geom_boxplot(alpha=0.3) +
+            theme_minimal()+
+            theme(
+                legend.position="none",
+                panel.spacing = unit(0.1, "lines"),
+                axis.text.x = element_text(size=20),
+                axis.text.y = element_text(size=20)
+            ) +
+            xlab("")+
+            ylab("")+
+            scale_x_continuous(breaks =c(0,20,40,60,80,100,120,140,160,180,200))
+```
+

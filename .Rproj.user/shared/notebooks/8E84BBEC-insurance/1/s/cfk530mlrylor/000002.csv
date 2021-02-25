@@ -1,0 +1,51 @@
+"0","library(randomForest)
+"
+"2","randomForest 4.6-14
+"
+"2","Type rfNews() to see new features/changes/bug fixes.
+"
+"2","
+Attaching package: ‘randomForest’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    combine
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    margin
+
+"
+"0","library(caret)"
+"2","Loading required package: lattice
+"
+"2","
+Attaching package: ‘caret’
+
+"
+"2","The following object is masked from ‘package:purrr’:
+
+    lift
+
+"
+"0","library(DMwR) # load the SMOTE dealing with imbalanced data"
+"2","Loading required package: grid
+"
+"2","Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+"
+"0","smote_data <- SMOTE(Response ~ ., # Set prediction formula"
+"0","train_subset, # Set dataset"
+"0","perc.over = 100) # Select oversampling for minority class"
+"0","summary(smote_data$Response)"
+"1","  Interest "
+"1","NOInterest "
+"1","
+"
+"1","     12248 "
+"1","     12248 "
+"1","
+"

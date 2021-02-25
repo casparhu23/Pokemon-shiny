@@ -1,0 +1,5 @@
+"0","rmarkdown::paged_table(movie_info)
+"
+"2","Error in rmarkdown::paged_table(movie_info) : 
+  Only data frames can be used to create a paged_table.
+"

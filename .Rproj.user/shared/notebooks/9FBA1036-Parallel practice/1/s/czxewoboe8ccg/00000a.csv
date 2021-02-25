@@ -1,0 +1,35 @@
+"0","t1 <- proc.time()
+for(i in 1:nrow(pokemon_list_2)){
+
+ x <-  apply(pokemon_list_2[,-1:-7], 2, function(x) sum(x)) 
+ 
+}
+print(x)
+"
+"1","        hp "
+"1","    attack "
+"1","   defence "
+"1"," sp_attack "
+"1","sp_defence "
+"1","     speed "
+"1","
+"
+"1","     26665 "
+"1","     29584 "
+"1","     28928 "
+"1","     26117 "
+"1","     27642 "
+"1","     24649 "
+"1","
+"
+"0","proc.time() - t1"
+"1","   user "
+"1"," system "
+"1","elapsed "
+"1","
+"
+"1","  0.163 "
+"1","  0.043 "
+"1","  0.242 "
+"1","
+"

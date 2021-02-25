@@ -1,0 +1,3 @@
+"0","f1 <- meanf(ibm1, h=h) #average of past values method # h=h we use test data length to forecast"
+"0","f2 <- rwf(ibm1, h=h) #naive method"
+"0","f3 <- rwf(ibm1, drift=TRUE, h=h) #drift method"

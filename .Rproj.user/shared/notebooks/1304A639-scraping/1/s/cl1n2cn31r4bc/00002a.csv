@@ -1,0 +1,8 @@
+"0","read_html(link_espn)%>%
+  html_nodes("".odds-details"")%>%
+  html_text()
+"
+"1","[1]"
+"1"," ""\n\t\t\t\t\tLine: ILL -4.0\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\tOver/Under: 136\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t"""
+"1","
+"

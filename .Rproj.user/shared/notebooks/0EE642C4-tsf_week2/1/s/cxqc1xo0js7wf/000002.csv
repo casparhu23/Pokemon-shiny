@@ -1,0 +1,2 @@
+"0","fc1 <- hw(visitors_training,seasonal=""mult"")"
+"0","plot(fc1)"

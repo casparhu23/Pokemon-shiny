@@ -1,0 +1,4 @@
+"0","tokens %>%"
+"0","  inner_join(get_sentiments(""afinn"")) %>% "
+"0","  summarize(n = nrow(.), sentSum = sum(value)) %>% "
+"0","  mutate(sentiment = sentSum / n)"

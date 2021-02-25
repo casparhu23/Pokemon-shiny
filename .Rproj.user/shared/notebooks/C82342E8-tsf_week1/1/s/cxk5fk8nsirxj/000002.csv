@@ -1,0 +1,5 @@
+"0","library(ggplot2)"
+"0","library(forecast)"
+"0","library(tseries)"
+"0","da <- read.table(""/Users/Caspar/Documents/Times Series Forecasting/Weight_female.txt"",header=T) #Load data"
+"0","head(da)"

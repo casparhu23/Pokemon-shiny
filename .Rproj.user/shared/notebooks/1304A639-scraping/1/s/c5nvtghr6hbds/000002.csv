@@ -1,0 +1,6 @@
+"0","read_html(albumLink) %>% 
+  html_nodes(""h2 + p + table.wikitable"")%>%   # there are three tables fit for the rule: # h2 followed by p                                                 paragraph and followed by table
+  html_table()
+"
+"1","[[1]]
+"

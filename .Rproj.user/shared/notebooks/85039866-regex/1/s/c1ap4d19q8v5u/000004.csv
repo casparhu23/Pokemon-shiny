@@ -1,0 +1,5 @@
+"0","library(stringr)"
+"0","str_which()"
+"2","Error in str_detect(string, pattern, negate = negate) : 
+  argument ""pattern"" is missing, with no default
+"

@@ -1,0 +1,5 @@
+"0","library(xgboostExplainer) # Load XGboost Explainer"
+"0","# Extract importance"
+"0","imp_mat <- xgb.importance(model = bst_initial)"
+"0","# Plot importance (top 10 variables)"
+"0","xgb.plot.importance(imp_mat, top_n = 10)"

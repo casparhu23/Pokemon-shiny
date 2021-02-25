@@ -1,0 +1,29 @@
+"0","normalTest(log_return, method= 'jb')
+"
+"1","
+Title:
+ "
+"1",""
+"1","Jarque - Bera Normalality Test"
+"1",""
+"1","
+"
+"1","
+Test Results:
+"
+"1","  STATISTIC:
+"
+"1","    X-squared: 12.0105
+"
+"1","  P VALUE:
+"
+"1","    Asymptotic p Value: 0.002466 
+"
+"1","
+Description:
+ "
+"1",""
+"1","Sun Feb 21 14:13:55 2021 by user: "
+"1","
+
+"
